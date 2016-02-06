@@ -8,7 +8,7 @@ The academic reference manager [Sente for OSX and iOS](http://www.thirdstreetsof
 
 ## Problem: incomplete export
 
-Sente supports XML export following its own schema, but for the notes attached to PDFs some important information is missing from this export, namely:
+Sente supports XML export following its own schema; but some important information is missing from this export, particularly for the notes attached to PDFs:
 
 - colour of the note
 - the UUID of the PDF this note is pointing to (important in the case of more than one attachment to a reference)
