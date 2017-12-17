@@ -2559,19 +2559,3 @@
         </row>
     </rows>
 </table>
-<index>
-    <database></database>
-    <name>AuthorPK</name>
-    <unique>true</unique>
-    <ddl>CREATE UNIQUE INDEX AuthorPK ON Author( ReferenceUUID, SequenceNumber );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>AuthorAspectValueToRef</name>
-    <ddl>CREATE INDEX AuthorAspectValueToRef ON Author( AspectValue, ReferenceUUID );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>RefToAuthorAspectValue</name>
-    <ddl>CREATE INDEX RefToAuthorAspectValue ON Author( ReferenceUUID, AspectValue );</ddl>
-</index>
