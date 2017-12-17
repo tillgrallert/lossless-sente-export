@@ -1,0 +1,2577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <database></database>
+    <name>Author</name>
+    <ddl>CREATE TABLE Author ( ReferenceUUID varchar, SequenceNumber int, LastName varchar COLLATE SenteLocalizedNoCase, ForeNames varchar COLLATE SenteLocalizedNoCase, ForeNamesAsInitials varchar COLLATE SenteLocalizedNoCase, Role varchar COLLATE SenteLocalizedNoCase, AspectValue varchar COLLATE SenteLocalizedNoCase );</ddl>
+    <columns>
+        <column>
+            <name>ReferenceUUID</name>
+            <type>varchar</type>
+        </column>
+        <column>
+            <name>SequenceNumber</name>
+            <type>int</type>
+        </column>
+        <column>
+            <name>LastName</name>
+            <type>varchar</type>
+            <constraints>
+                <constraint>
+                    <type>COLLATE</type>
+                    <definition>COLLATE SenteLocalizedNoCase</definition>
+                </constraint>
+            </constraints>
+        </column>
+        <column>
+            <name>ForeNames</name>
+            <type>varchar</type>
+            <constraints>
+                <constraint>
+                    <type>COLLATE</type>
+                    <definition>COLLATE SenteLocalizedNoCase</definition>
+                </constraint>
+            </constraints>
+        </column>
+        <column>
+            <name>ForeNamesAsInitials</name>
+            <type>varchar</type>
+            <constraints>
+                <constraint>
+                    <type>COLLATE</type>
+                    <definition>COLLATE SenteLocalizedNoCase</definition>
+                </constraint>
+            </constraints>
+        </column>
+        <column>
+            <name>Role</name>
+            <type>varchar</type>
+            <constraints>
+                <constraint>
+                    <type>COLLATE</type>
+                    <definition>COLLATE SenteLocalizedNoCase</definition>
+                </constraint>
+            </constraints>
+        </column>
+        <column>
+            <name>AspectValue</name>
+            <type>varchar</type>
+            <constraints>
+                <constraint>
+                    <type>COLLATE</type>
+                    <definition>COLLATE SenteLocalizedNoCase </definition>
+                </constraint>
+            </constraints>
+        </column>
+    </columns>
+    <rows>
+        <row>
+            <value column="0">B28A9F39-B3B5-48FD-AD02-E35EAB57E18D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">06D30C7D-511D-4E99-BAD8-BC1B6E544185</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">26FFDD2C-B78F-4AA9-BAE7-DB82DFB441B2</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">11620AB2-3318-4FCB-97E0-2F3849C4B4DF</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CFB1B126-8D9B-42A8-85CE-EF4ECD5B45A5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FF0D01D9-B537-4BDC-B821-59DDBD1E65E2</value>
+            <value column="1">0</value>
+            <value column="2">خير الله</value>
+            <value column="3">أمين ظاهر</value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">خير الله, أمين ظاهر</value>
+        </row>
+        <row>
+            <value column="0">FF0D01D9-B537-4BDC-B821-59DDBD1E65E2</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D0ED2C89-0B06-4A4D-AF28-A1964B71678F</value>
+            <value column="1">0</value>
+            <value column="2">المعلوف</value>
+            <value column="3">عيسى اسكندر</value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">المعلوف, عيسى اسكندر</value>
+        </row>
+        <row>
+            <value column="0">D0ED2C89-0B06-4A4D-AF28-A1964B71678F</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">AE233044-0E0D-426F-BB45-74801E1D9F4F</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D750A8F4-028E-40AD-A242-7ACFF6B2DE14</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E15D4077-39C6-45A6-AF9D-DC95410DFD71</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2726ED39-B4D4-4AF0-A878-CBE972F1C825</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F28763EF-3231-4D5F-A4E4-109B7346B1AE</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">99C90E9A-33FC-4A52-A159-23E432A2BDF3</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">98B16E81-91B1-4754-B100-BA9EC14894A8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">34C32008-7CB6-492F-83C8-0542627AC04D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">4F8E8E6D-8149-456F-9B3B-D24101C1667A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">FB436B6A-C72D-4A3B-896E-B66B16369F39</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">D2A51FD1-848F-424D-A022-1CA02446AD15</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">88AD740A-6C88-4084-875E-26FFC7BC7110</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">67EEE491-B0CF-4B9A-9FDC-398001A19165</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">800AAA6A-1CD8-41F0-BB91-08B098091A62</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2977B650-0548-477D-A165-44A4E2611CD8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0F63A288-B93D-43EB-B849-B7DD26B293F6</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">99DD66B2-D091-425A-A758-534CA2697890</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F115425D-D5CE-4F8E-B6CA-0FBFBADD82ED</value>
+            <value column="1">0</value>
+            <value column="2">تيمور</value>
+            <value column="3">أحمد</value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">تيمور, أحمد</value>
+        </row>
+        <row>
+            <value column="0">F115425D-D5CE-4F8E-B6CA-0FBFBADD82ED</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E6F13BEF-69DC-4188-8849-2A0229628162</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8B658BB1-D62A-42E0-A4A7-F7F1A8A5A444</value>
+            <value column="1">0</value>
+            <value column="2">تيمور</value>
+            <value column="3">أحمد</value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">تيمور, أحمد</value>
+        </row>
+        <row>
+            <value column="0">8B658BB1-D62A-42E0-A4A7-F7F1A8A5A444</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6346C405-5A6E-4A1B-9E46-CABBB30D61ED</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2D923B18-64D0-41C9-848B-5DDF98F0DDD6</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7504EBD0-E675-49FA-A00D-5788B1E2908A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A82E36CE-F0D1-4C6F-8001-0C5B0F4DE016</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">280CF4E5-167D-4116-8B76-A47CAF4B74BD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">AAEC0CA6-A1BB-4069-9112-AD3CB269406B</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C95E13EC-B75D-467C-8A71-1779AD7EC6F1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6C1E90A8-D126-437E-B60C-42D11453C594</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">86E7F1A1-718B-4D32-88F3-F125A356B4F1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">82E3F06C-852B-4770-8483-355D7873E6D7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2DBBE6A8-0688-44EA-9516-6FAA8CAAECF8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9830BB96-3766-48D6-857D-1368F710AEF7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0B111B26-EF4D-45DF-B355-66F75DD205F6</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">5BE43848-DC11-4254-9FE6-E11A63B06B87</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8E95B39D-F9DD-488A-A4A2-B042077881B8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">82347EB7-8984-4086-B5AC-64668E9870F6</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7C2DDDF7-3D0D-4739-846C-2E41F26C5A25</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">08622F66-BDC5-4E21-8067-E7FEC8E25230</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">DBB7EC87-C8F8-479F-B13E-0A2D0D332DCF</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2142E514-2522-4B0A-8E86-31C450156BE1</value>
+            <value column="1">0</value>
+            <value column="2">المغربي</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">المغربي</value>
+        </row>
+        <row>
+            <value column="0">2142E514-2522-4B0A-8E86-31C450156BE1</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">32ECC0B6-EBC9-4AC4-8239-ECBE4F9DCC07</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8F638715-129F-4673-BFEC-70730332E436</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FA32E1DC-4CAE-413F-BAD6-92B39946EA5B</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">51A61684-689A-437C-9052-A7626B246F18</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B41E8398-63E9-4B50-BE58-174721245B7B</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">81F9B685-4AC8-4D07-9FB9-89146896660F</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">EA1AA92E-E81F-41DC-BCEB-F324FC679395</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">57848B78-8302-48C9-A485-800835A34119</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CC8A6511-F485-408A-8EE0-698BEB4E130E</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">01615694-A7F8-41D5-BF77-E13E2E391CC9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A9754FD1-6035-4845-AC6C-C39D78F9F91E</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B5771A42-6D7E-4D37-98AC-739B677E7C71</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FD9811D9-FD10-4B17-AD4F-46C1323B8199</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">24221DEE-3D17-4501-8D50-30B34FB99221</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0456E3CB-B076-4AB5-91D8-95110466E8AD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E04D7650-0711-4697-92FD-B0938B3BE7B2</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">DDA453ED-D0DC-4115-A9C6-D36F0747437F</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">570127D9-E0A5-4AC8-800F-A3F07DCB27B4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">19CC11F3-4784-4971-8A1F-3FE4E8D38BAA</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">25809278-9D5A-4461-8AD3-8D20FB151438</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2C644E8B-7A9B-4968-8B32-88E283922A11</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0C6F4E03-1AEC-43E9-A26D-C7E91D6FDB13</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BE263DBE-1399-43A9-8762-208AA9861741</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F4B07E13-035A-4DD0-9833-6BB5414697C3</value>
+            <value column="1">0</value>
+            <value column="2">جمال الدين القاسمي</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">جمال الدين القاسمي</value>
+        </row>
+        <row>
+            <value column="0">F4B07E13-035A-4DD0-9833-6BB5414697C3</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3C9BEE00-61B6-4BF2-BB39-017A820921CA</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">01907B7F-EE4D-4BFA-B017-2F42E2F819A0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">061B84E4-191F-44E6-8738-2DE1348D838D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2F42FC65-2116-45A9-90BC-F9CE71C68BA0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">23F7DDD3-805D-4EBE-8BD6-4B65D1638845</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C5DABD18-C46C-4371-A643-413E969C7CA5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FEC1B5A0-7F12-434C-B208-78A225EAF58B</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6C93CF5C-931C-497F-9CDD-A093DF425490</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1DFF7C37-D112-4489-8183-087F6F4F7AF3</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">017DE05E-FA19-47B9-B45A-3200E0AA9148</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BA1551E4-E17A-4419-B386-3023DBD22C87</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">318FAB1D-59A7-448B-B54B-30E3DCCF49AC</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1017E2B1-5BA4-48A5-BFD4-374A359FF159</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1731EF26-6AC2-44E4-9551-CABAF7791346</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">643D5232-B743-4FBC-AC5A-8178ED20F99C</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B208F36D-5D99-406B-82FF-B098F23033C7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A1E101BA-5659-4BDB-8D7F-0D2F7C65FD95</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CD3C1298-CE27-489B-A6A3-D77899581565</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F2E40E70-0F9B-4F37-9600-9F46E33F4927</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CFF03EAA-B30F-4F4A-A267-50708B4820B8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6069E718-CA99-4D05-A679-7A0357C1A2A8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F1D43813-76D1-44C5-9CD5-18BC21BB46D9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">022F2C4A-3D53-48A5-9B80-B0E25A99B660</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E63A4989-0FD3-4114-98A0-9E9AFEAFFB81</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2591763B-345E-4DF8-A9BC-2921E4D40E64</value>
+            <value column="1">0</value>
+            <value column="2">خليل سعد</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">خليل سعد</value>
+        </row>
+        <row>
+            <value column="0">2591763B-345E-4DF8-A9BC-2921E4D40E64</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0AF8913C-058C-4365-99C7-D79A50E187E0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3F34E36A-314E-42C6-9C87-CE87452F80D7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A9721873-F104-411B-B44E-61CB9ABF583F</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4F3C66A9-C307-46C9-9ECF-A41BB3562FD4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">33FA8391-F0A1-4A3C-85EA-47C9E100C76D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3B353EEF-9ECF-41AA-BDE4-D2E551A7C2E8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CEBAF44C-B78F-478B-83D8-B39DD6502B60</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">AE51B599-2438-4C85-9FC2-04071EF46D75</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C8B60BA9-3D30-4A7B-BBEC-8048840AD0D5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">89E6C97D-B7EB-4A8E-B38E-7832CEC27885</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BEF34248-5410-4BBE-B05E-558A07019370</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B7962D30-1EF1-4628-B957-B1857260B08D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">25FA6817-AC24-4D6B-8DDE-56C4BA7E616C</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C0B84326-D88B-406F-A533-F8C9FD436DEC</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">814AE885-553A-46AD-A39E-72120625C0B7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FA162561-76AB-42D2-8494-98B43B562618</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B19F536D-E7CB-45D7-B713-8EE96D669116</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D4B9D7C9-8B27-46CA-B2C0-226323A2FDE8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BFC5EE04-A7C6-4871-A8D2-38FE7FC57AC1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">219AB602-CD44-45FB-8429-CD0615620EB5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8198E99D-D12E-48E8-A4E4-8239CDD291C4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9E17907E-2867-49B3-8DB2-01043C03A000</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E04A8E04-7222-4560-A248-C8AA205D2C1C</value>
+            <value column="1">0</value>
+            <value column="2">يوسف جريس زخم</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">يوسف جريس زخم</value>
+        </row>
+        <row>
+            <value column="0">E04A8E04-7222-4560-A248-C8AA205D2C1C</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BF32759A-DF97-49A9-81FC-6AE0021477FD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A4A6EFEB-3A08-48CB-8D8C-5F44454037F4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">53C8746B-B58D-4CDC-843E-3D5C48352F69</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4CECF480-9B46-47D6-8570-313F14C3404E</value>
+            <value column="1">0</value>
+            <value column="2">محمد جميل الشطي</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">محمد جميل الشطي</value>
+        </row>
+        <row>
+            <value column="0">4CECF480-9B46-47D6-8570-313F14C3404E</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CB8E07A6-904E-4FF6-B888-74E44BDC79E1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7BFE0DE6-17D2-42DE-B843-53173E0F74CD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A8A245BE-7A15-4F32-B9DE-173091D908DF</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CECE01D5-DECE-4187-A545-D38E4610F723</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">58672647-C60B-4FD4-BDC9-D3A1B955AFB1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">74F8B937-26C3-4E4A-88B1-688B7B20DDFB</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">36CBF84D-4939-4991-8024-62469370EE2C</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">61DEF33C-4C89-4576-9B6F-0ECCEC1C3D3E</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3FA3ACAD-8930-49CF-B3A8-68051ACAA108</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4FDF8727-97A4-408D-9D34-9DEC549FDAAA</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8FD720A8-819F-478F-84F6-BDB0A8F4F243</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E1CC8DBA-D31D-4E38-B86E-3FA0388CF1FD</value>
+            <value column="1">0</value>
+            <value column="2">جمال الدين القاسمي</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">جمال الدين القاسمي</value>
+        </row>
+        <row>
+            <value column="0">E1CC8DBA-D31D-4E38-B86E-3FA0388CF1FD</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8A52C959-6CC5-4B89-85DF-E26C2386AD0F</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0F5B5214-C824-45AB-9AF8-80C33CB76B44</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A5FAC803-67F1-438B-82B6-216255CEDDB1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BA53FF86-11DB-4145-B21A-B7ED0E132C4C</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2D10D5B2-A681-43C2-8148-954CF61724CD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7EE29CF9-F9FD-4FAF-BC84-600CAD89B612</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FFBC879C-F07F-4BCA-945C-9C333DDB1FE4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">778CA0D0-12FB-49AE-AAD0-92F2080CD136</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3F37BA3D-2669-4D6F-885A-9F1647E8A492</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">DBA20C2D-BD3E-4E64-9A6D-0D4FC18A8FE8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9208DBB3-E99A-4385-95FB-2E6D3537AE4D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0661B843-4046-4340-9179-8DC7051FE4AB</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9AEA7E1E-1F6D-4E32-B190-845A75884C10</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A207EDDD-526C-4BE8-AE48-DCE737FE2D03</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FB222F9C-2580-4288-ADE8-4E63A7819EC4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BFC86193-4BAF-4ADC-B574-3A73A54BD393</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F3F66DC1-0CC1-49D8-807A-DA2E48EE9D40</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4FEAF9F1-AD39-423B-A3D4-40FE4F98D4BD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">80FC3956-68AF-4BBD-A9D5-EB4705B30323</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6662B380-D160-4A49-9B2B-6AB841055B7A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C011E86B-0F6D-4EDC-BC23-3BF0E79A4912</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D4D97885-664F-4699-8F6F-C57B9928BB9D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A7338122-18A3-47A4-A736-4810A2D7360D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7E57FE33-DE8E-4ABE-AD5D-008222444A04</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">33CB57C1-E96B-4B9E-868F-3D97D94823B1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">52C05AE8-7C46-45AC-9765-82EC36762B17</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3936A18D-4CEB-4B78-BF0E-06477B56F3AE</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2DF05DF9-7ADA-450C-92B4-6BFAB607FC77</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">3B6CC934-3317-47FC-B183-3DE81C2EBBF2</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E9F3DDCB-E985-4C88-9847-B59BADA0FC49</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">05AFD8B8-B9CB-4435-8064-63B3721A7539</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">67C66A9D-6926-4630-BD56-7504AF82A7A3</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1AAD5059-E3EB-40A3-ADED-1D56344F8CD6</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">5F6D7D46-88A6-49E0-865C-1DD768099864</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1A7398A6-63E0-43B9-A873-244F1DA84882</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">5D35EE8D-5DCB-4952-8F6C-A2B423B35E3A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">364527B9-4044-4A45-8E9A-6E2DA84B408C</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">FA93E255-DCBF-456D-97A5-85231C248FDA</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">181B43CC-184D-4DD4-8157-E4A4973316E9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1F5FB7A9-C72F-4236-A4C0-854D96748BD7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CA7BEA8C-6262-4EA1-8DFC-1395C93E7CB0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7A66F207-247C-4D84-830D-CDDEEFB6D1E7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A4A75696-668D-4E90-B09A-A3C03E519DE5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9F0DF38D-68FE-4F39-B1D7-0A35224E64C9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">853B3534-F0C4-41C3-AE47-5A8E1E0BF640</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">72FCFB4E-5684-48E4-8457-268930BE0CFD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">DFB55FAB-D80E-4FA7-B7D6-F3BB2F046F44</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">89BF6A7C-60E5-4ACC-8C59-EC647245A1D0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">29D72A99-DBD8-441D-9E26-27237B0A8098</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">74AE912E-9292-4878-A7A3-5D03EC70E358</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4E03E6E3-C43D-4C03-B342-1FA09BAF9EB1</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9729B845-72A9-4425-8833-3058A0EB46FA</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B9A7F692-182E-4EFE-9AFC-2F3AE7FDD134</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E5692333-9E63-437D-BA59-36BCCB3A3C85</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7232C92B-FD34-444A-AF7C-89F7A7A554F0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9112B7FB-6552-4502-92F7-AB70648FD5C0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">20DD84D4-8B27-4078-A1BA-1668D61BD24B</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A4564A29-F150-4F52-AB18-02DCC5C5A6F0</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">8A7E7424-F24B-48F6-A21B-DBD252644F06</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F7255428-3CFA-40C7-A84A-494C4CF79812</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">84FA316B-4522-4B5A-919A-905102E30680</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C3A4FFBE-1DF9-48DA-8906-B6CA777770AF</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9A9105B0-0615-4334-854C-124287D85B31</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1EB116B4-8B39-4167-B89C-C5A8346CF88D</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BE0F7D43-3BC9-443A-8577-9D879E682FE9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E7562180-ACE2-4FF3-8B83-529857927E28</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">24F64689-7EE5-4E84-843F-4F3122BFC966</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">0A804C72-EA45-4834-991A-62BABFDE7D9C</value>
+            <value column="1">0</value>
+            <value column="2">خليل سعد</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">خليل سعد</value>
+        </row>
+        <row>
+            <value column="0">0A804C72-EA45-4834-991A-62BABFDE7D9C</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">374C7AEE-501D-4B2A-B875-C2487DC65326</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D0C35DE2-4183-4468-89E6-1196B22FC74B</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A141752A-83AD-4D96-A0B2-89D531172CAF</value>
+            <value column="1">0</value>
+            <value column="2">Ø­Ø³ÙÙ Ø¹Ø¨Ø¯ Ø§ÙÙØ§Ø¯Ù</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">Ø­Ø³ÙÙ Ø¹Ø¨Ø¯ Ø§ÙÙØ§Ø¯Ù</value>
+        </row>
+        <row>
+            <value column="0">A141752A-83AD-4D96-A0B2-89D531172CAF</value>
+            <value column="1">1</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">7FDC7D73-2566-420D-9CA9-A3FBD1C35771</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">401A2E2D-C821-446C-93E8-5120F028F77D</value>
+            <value column="1">0</value>
+            <value column="2">حقي العظم</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">حقي العظم</value>
+        </row>
+        <row>
+            <value column="0">401A2E2D-C821-446C-93E8-5120F028F77D</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">E650A8AB-3098-4DC4-A80B-02F9930AE58A</value>
+            <value column="1">0</value>
+            <value column="2">أحمد تيمور</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">أحمد تيمور</value>
+        </row>
+        <row>
+            <value column="0">E650A8AB-3098-4DC4-A80B-02F9930AE58A</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">08261D4A-4204-46AE-A635-18017B71DBC9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1D37D9A6-BD85-4FFE-AC50-4633B1149A57</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">42ECFA84-99A9-42DC-B3B5-4CA3EC68E360</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4011819D-F937-4390-92EA-5B807A3E86A7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">ECE7439D-85E6-4FD2-9CE4-FD5267125FC5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">06614884-54C5-4D78-BBC9-56196235D8F2</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6401B490-65D3-4410-B84B-33CD5DF0F8B5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D727C75B-2C86-4250-AEDF-04D66EE5FDE9</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">C7DCE55C-341D-485D-A62B-68BF35291BED</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A53E02FF-CD78-423D-8B9F-8BDA55345EF5</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">DDA0BAEF-A7D6-4455-B334-EF2358D43E77</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A9CB3E05-43EA-4329-9F25-CEA8B523B291</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">93CBF912-FB98-40B4-A01D-EBFF18EFE5C8</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">ED43EBAD-C281-4CD6-BA48-588F71FD2FFD</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">37CD95E2-4171-47D8-B323-B6E64EFB5370</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">BE48AEFC-5A0D-4CCD-ADA1-2B94AAC93FC6</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">61E67C1D-96E7-4205-B7AA-E81CC3511DA4</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">7A85DBD4-6A80-442C-860D-D55D9894FA05</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4E15D4B4-730D-4C0B-9ADA-24FA793758DA</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">4B90D74E-1603-4551-AF41-58A400436607</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">B1794CA0-CB19-498C-ACA5-1C95B4E6AB24</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2C0C3EB5-1BD3-43AB-AAC4-D078033BAC5E</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">9DA6025D-765D-431D-9200-C824AD5CBD5E</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">99D1D144-0180-4458-85E5-DA5878F89247</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">AFA9C1B4-36AB-46D2-91C1-29B984678D23</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6D3ABD2E-4280-4D4D-AE59-5B2004C510A3</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">5B273EEA-B2E3-4F23-9927-CE5E3661855A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">E228F3D9-0F19-4E2B-A211-B76751CAA902</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">F2741B40-7F9C-4FDB-8017-C6D0E97FA55E</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1D9B9B97-6FB7-404E-84EB-1BA5168FAB8A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">495D8A14-68A1-4199-95EB-2E651B8EE7CB</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6094C057-12E0-42E3-BFF3-FC5F19B9BE49</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A7BE66D5-FF8B-4F48-BE74-E94F1CFC90C7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">01AA1259-0415-40DE-A6F7-9C919211F2EE</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">CCAC912B-524E-44EC-882A-CFBB55294B01</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">78C6AF68-8C79-4A04-B827-7A9DD8BB0068</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2D757325-288A-4126-8507-E202FCBD0C09</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">834C3AD8-5B42-4747-B74E-B165EA20B679</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">366BB536-69D1-46A3-AE3C-9641F0EFBE7A</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">B39B8F22-5E3E-44EA-9A0E-E53BDBCDD6AE</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">D482A6BB-8564-4966-9AF2-69BDD86D55EE</value>
+            <value column="1">0</value>
+            <value column="2">Kurd Ê¿AlÄ«</value>
+            <value column="3">Muá¸¥ammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd Ê¿AlÄ«, Muá¸¥ammad</value>
+        </row>
+        <row>
+            <value column="0">682DC118-EF41-480B-AB80-966A39CBFB85</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6C749466-C714-4620-A055-E59559E199E7</value>
+            <value column="1">0</value>
+            <value column="2">جمال الدين القاسمي</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">جمال الدين القاسمي</value>
+        </row>
+        <row>
+            <value column="0">6C749466-C714-4620-A055-E59559E199E7</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">6B7C7966-0348-4F99-8655-7E82A04E702D</value>
+            <value column="1">0</value>
+            <value column="2">جرجي الحداد</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">جرجي الحداد</value>
+        </row>
+        <row>
+            <value column="0">6B7C7966-0348-4F99-8655-7E82A04E702D</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">2BFF50B4-40CE-4BC2-887F-BD3091F45BD1</value>
+            <value column="1">0</value>
+            <value column="2">عيسى اسكندر المعلوف</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">عيسى اسكندر المعلوف</value>
+        </row>
+        <row>
+            <value column="0">2BFF50B4-40CE-4BC2-887F-BD3091F45BD1</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">1D4E27DA-046B-4E2A-A2D0-4C2F82C75F6C</value>
+            <value column="1">0</value>
+            <value column="2">سعيد الخوري الشرتوني</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">سعيد الخوري الشرتوني</value>
+        </row>
+        <row>
+            <value column="0">1D4E27DA-046B-4E2A-A2D0-4C2F82C75F6C</value>
+            <value column="1">1</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">A8ABCA90-E115-4D80-BBE8-224CAE42DF14</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">00D163DA-C4EF-4647-A25A-967824864FC7</value>
+            <value column="1">0</value>
+            <value column="2">Kurd ʿAlī</value>
+            <value column="3">Muḥammad</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Kurd ʿAlī, Muḥammad</value>
+        </row>
+        <row>
+            <value column="0">D6346FEC-00D8-47A4-8B14-3389FD262DB0</value>
+            <value column="1">0</value>
+            <value column="2">Mishāqa</value>
+            <value column="3">Nāṣīf</value>
+            <value column="4"></value>
+            <value column="5">Author</value>
+            <value column="6">Mishāqa, Nāṣīf</value>
+        </row>
+        <row>
+            <value column="0">9ED5D922-8984-4EBB-951B-11919769814A</value>
+            <value column="1">0</value>
+            <value column="2">Qabbānī</value>
+            <value column="3">ʿAbd al-Qādir</value>
+            <value column="4"></value>
+            <value column="5">Editor</value>
+            <value column="6">Qabbānī, ʿAbd al-Qādir</value>
+        </row>
+    </rows>
+</table>
+<index>
+    <database></database>
+    <name>AuthorPK</name>
+    <unique>true</unique>
+    <ddl>CREATE UNIQUE INDEX AuthorPK ON Author( ReferenceUUID, SequenceNumber );</ddl>
+</index>
+<index>
+    <database></database>
+    <name>AuthorAspectValueToRef</name>
+    <ddl>CREATE INDEX AuthorAspectValueToRef ON Author( AspectValue, ReferenceUUID );</ddl>
+</index>
+<index>
+    <database></database>
+    <name>RefToAuthorAspectValue</name>
+    <ddl>CREATE INDEX RefToAuthorAspectValue ON Author( ReferenceUUID, AspectValue );</ddl>
+</index>
