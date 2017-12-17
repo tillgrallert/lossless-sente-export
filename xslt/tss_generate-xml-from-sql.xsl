@@ -21,6 +21,9 @@
             <tss:reference xml:id="{concat('uuid_',current-grouping-key())}">
                 <tss:publicationType name=""/>
                 <!-- authors -->
+                <xsl:call-template name="t_generate-authors">
+                    <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                </xsl:call-template>
                 <tss:dates>
                     <tss:date type="Publication" year="" month="" day=""/>
                     <tss:date type="Entry" year="" month="" day=""/>
@@ -109,11 +112,11 @@
         <xsl:param name="p_reference-uuid"/>
         <xsl:param name="p_input" select="document(concat($v_input-folder,'Author.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
         <tss:authors>
-            <xsl:for-each select=".">
-                <tss:author role="">
-                    <tss:surname></tss:surname>
-                    <tss:forenames></tss:forenames>
-                    <tss:initials/>
+            <xsl:for-each select="$p_input/descendant-or-self::row">
+                <tss:author role="{value[@column='5']}">
+                    <tss:surname><xsl:value-of select="value[@column='2']"/></tss:surname>
+                    <tss:forenames><xsl:value-of select="value[@column='3']"/></tss:forenames>
+                    <tss:initials><xsl:value-of select="value[@column='4']"/></tss:initials>
                 </tss:author>
             </xsl:for-each>
         </tss:authors>
