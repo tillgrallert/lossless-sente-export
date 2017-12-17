@@ -10,6 +10,8 @@
     
     <!-- input is Reference.xml -->
     
+    <xsl:variable name="v_input-folder" select="replace(base-uri(),'(.+/).+?\.xml','$1')"/>
+    
     <xsl:template match="/">
         <!-- group by PrimaryReferenceUUID in  -->
         <tss:senteContainer>
@@ -17,9 +19,24 @@
                 <tss:references>
         <xsl:for-each-group select="table/rows/row" group-by="value[@column='0']">
             <tss:reference xml:id="{concat('uuid_',current-grouping-key())}">
-            <xsl:call-template name="t_generate-notes">
-                <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
-            </xsl:call-template>
+                <tss:publicationType name=""/>
+                <!-- authors -->
+                <tss:dates>
+                    <tss:date type="Publication" year="" month="" day=""/>
+                    <tss:date type="Entry" year="" month="" day=""/>
+                    <tss:date type="Modification" year="" month="" day=""/>
+                    <tss:date type="Retrieval" year="" month="" day=""/>
+                </tss:dates>
+                
+                <tss:characteristics>
+                    <!-- add all fields -->
+                </tss:characteristics>
+                <xsl:call-template name="t_generate-keywords">
+                    <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                </xsl:call-template>
+                <xsl:call-template name="t_generate-notes">
+                    <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                </xsl:call-template>
             <xsl:call-template name="t_generate-attachments">
                 <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
             </xsl:call-template>
@@ -33,7 +50,7 @@
     <xsl:template name="t_generate-notes">
         <!-- the template takes a reference UUID as input and queries the Note.xml file for any rows relating to this reference -->
          <xsl:param name="p_reference-uuid"/>
-        <xsl:param name="p_input" select="document(concat(replace(base-uri(),'(.+/).+?\.xml','$1'),'Note.xml'))/table/rows/row[value[@column='1']=$p_reference-uuid]"/>
+        <xsl:param name="p_input" select="document(concat($v_input-folder,'Note.xml'))/table/rows/row[value[@column='1']=$p_reference-uuid]"/>
         <tss:notes>
             <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 10: IsDeleted. -->
             <!-- In addition, the Note.xml file also contains all notes attached to references long since deleted, which, however, will not be marked as having been deleted themselves -->
@@ -56,12 +73,12 @@
     <xsl:template name="t_generate-attachments">
         <!-- the template takes a reference UUID as input and queries the Attachment.xml file for any rows relating to this reference -->
         <xsl:param name="p_reference-uuid"/>
-        <xsl:param name="p_input" select="document(concat(replace(base-uri(),'(.+/).+?\.xml','$1'),'Attachment.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
+        <xsl:param name="p_input" select="document(concat($v_input-folder,'Attachment.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
         <tss:attachments>
             <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 6: IsDeleted. -->
             <xsl:for-each select="$p_input/descendant-or-self::row[value[@column='6']='N']">
                 <xsl:variable name="v_attachment-uuid" select="value[@column='1']"/>
-                <xsl:variable name="v_attachment-location" select="document(concat(replace(base-uri(),'(.+/).+?\.xml','$1'),'AttachmentLocation.xml'))/table/rows/row[value[@column='1']=$v_attachment-uuid]"/>
+                <xsl:variable name="v_attachment-location" select="document(concat($v_input-folder,'AttachmentLocation.xml'))/table/rows/row[value[@column='1']=$v_attachment-uuid]"/>
                 <tss:attachmentReference
                 xml:id="{concat('uuid_',$v_attachment-uuid)}"
                 correspReference="{concat('#uuid_',$p_reference-uuid)}"
@@ -73,6 +90,36 @@
 <!--            <tss:attachmentReference type="Portable Document Format (PDF)"/>-->
             </xsl:for-each>
         </tss:attachments>
+    </xsl:template>
+    
+    <xsl:template name="t_generate-authors">
+        <!-- the template takes a reference UUID as input and queries the Author.xml file for any rows relating to this reference -->
+        <xsl:param name="p_reference-uuid"/>
+        <xsl:param name="p_input" select="document(concat($v_input-folder,'Author.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
+        <tss:authors>
+            <xsl:for-each select=".">
+                <tss:author role="">
+                    <tss:surname></tss:surname>
+                    <tss:forenames></tss:forenames>
+                    <tss:initials/>
+                </tss:author>
+            </xsl:for-each>
+        </tss:authors>
+    </xsl:template>
+    
+    <xsl:template name="t_generate-keywords">
+        <!-- the template takes a reference UUID as input and queries the Note.xml file for any rows relating to this reference -->
+        <xsl:param name="p_reference-uuid"/>
+        <xsl:param name="p_input" select="document(concat($v_input-folder,'Keyword.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
+        <tss:keywords>
+            <xsl:for-each select="$p_input/descendant-or-self::row">
+                <tss:keyword
+                    assigner="{value[@column='2']}"
+                    correspReference="{concat('#uuid_',$p_reference-uuid)}">
+                   <xsl:value-of select="value[@column='1']"/>
+                </tss:keyword>
+            </xsl:for-each>
+        </tss:keywords>
     </xsl:template>
     
 </xsl:stylesheet>
