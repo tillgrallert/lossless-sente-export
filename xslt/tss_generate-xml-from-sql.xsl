@@ -59,8 +59,12 @@
                     xml:id="{concat('uuid_',value[@column='0'])}"  
                     correspReference="{concat('#uuid_',$p_reference-uuid)}" 
                     correspAttachment="{concat('#uuid_',value[@column='7'])}"
-                    editor="{concat('Sente User ',value[@column='14'])}"
-                    when="{value[@column='11']}">
+                    editor="{concat('Sente User ',value[@column='14'])}">
+                    <xsl:attribute name="when-iso">
+                        <xsl:call-template name="t_iso-timestamp">
+                            <xsl:with-param name="p_input" select="value[@column='11']"/>
+                        </xsl:call-template>
+                    </xsl:attribute>
                     <title><xsl:value-of select="value[@column='2']"/></title>
                     <comment><xsl:value-of select="value[@column='5']"/></comment>
                     <quotation><xsl:value-of select="value[@column='4']"/></quotation>
@@ -85,8 +89,12 @@
                 xml:id="{concat('uuid_',$v_attachment-uuid)}"
                 correspReference="{concat('#uuid_',$p_reference-uuid)}"
                 type="{value[@column='4']}"
-                editor="{concat('Sente User ',value[@column='13'])}"
-                when="{value[@column='8']}">
+                editor="{concat('Sente User ',value[@column='13'])}">
+                    <xsl:attribute name="when-iso">
+                        <xsl:call-template name="t_iso-timestamp">
+                            <xsl:with-param name="p_input" select="value[@column='8']"/>
+                        </xsl:call-template>
+                    </xsl:attribute>
                     <name><xsl:value-of select="value[@column='2']"/></name>
                     <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
                     <URL><xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/></URL>
@@ -124,6 +132,11 @@
                 </tss:keyword>
             </xsl:for-each>
         </tss:keywords>
+    </xsl:template>
+    
+    <xsl:template name="t_iso-timestamp">
+        <xsl:param name="p_input"/>
+        <xsl:value-of select="replace($p_input,'(\d+-\d+-\d+)\s(\d+:\d+:\d+)\s(.+)$','$1T$2$3')"/>
     </xsl:template>
     
 </xsl:stylesheet>
