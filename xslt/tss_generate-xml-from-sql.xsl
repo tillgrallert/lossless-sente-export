@@ -19,7 +19,7 @@
                 <tss:references>
         <xsl:for-each-group select="table/rows/row" group-by="value[@column='0']">
             <tss:reference xml:id="{concat('uuid_',current-grouping-key())}">
-                <tss:publicationType name=""/>
+                <tss:publicationType name="{value[@column='3']}"/>
                 <!-- authors -->
                 <xsl:call-template name="t_generate-authors">
                     <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
