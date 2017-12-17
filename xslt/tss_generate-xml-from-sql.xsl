@@ -58,7 +58,9 @@
                 <tss:note 
                     xml:id="{concat('uuid_',value[@column='0'])}"  
                     correspReference="{concat('#uuid_',$p_reference-uuid)}" 
-                    correspAttachment="{concat('#uuid_',value[@column='7'])}">
+                    correspAttachment="{concat('#uuid_',value[@column='7'])}"
+                    editor="{concat('Sente User ',value[@column='14'])}"
+                    when="{value[@column='11']}">
                     <title><xsl:value-of select="value[@column='2']"/></title>
                     <comment><xsl:value-of select="value[@column='5']"/></comment>
                     <quotation><xsl:value-of select="value[@column='4']"/></quotation>
@@ -82,7 +84,9 @@
                 <tss:attachmentReference
                 xml:id="{concat('uuid_',$v_attachment-uuid)}"
                 correspReference="{concat('#uuid_',$p_reference-uuid)}"
-                type="{value[@column='4']}">
+                type="{value[@column='4']}"
+                editor="{concat('Sente User ',value[@column='13'])}"
+                when="{value[@column='8']}">
                     <name><xsl:value-of select="value[@column='2']"/></name>
                     <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
                     <URL><xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/></URL>
