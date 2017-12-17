@@ -25,7 +25,8 @@
                     <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
                 </xsl:call-template>
                 <tss:dates>
-                    <tss:date type="Publication" year="" month="" day=""/>
+                    <!-- publication dates are stored in three different rows to account for technically false dates -->
+                    <tss:date type="Publication" year="{value[@column='15']}" month="{value[@column='16']}" day="{value[@column='17']}"/>
                     <tss:date type="Entry" year="" month="" day=""/>
                     <tss:date type="Modification" year="" month="" day=""/>
                     <tss:date type="Retrieval" year="" month="" day=""/>
