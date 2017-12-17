@@ -12,14 +12,22 @@
     
     <xsl:template match="/">
         <!-- group by PrimaryReferenceUUID in  -->
-        <xsl:for-each-group select="table/rows/row" group-by="value[@column='1']">
+        <tss:senteContainer>
+            <tss:library>
+                <tss:references>
+        <xsl:for-each-group select="table/rows/row" group-by="value[@column='0']">
+            <tss:reference xml:id="{concat('uuid_',current-grouping-key())}">
             <xsl:call-template name="t_generate-notes">
                 <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
             </xsl:call-template>
             <xsl:call-template name="t_generate-attachments">
                 <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
             </xsl:call-template>
+            </tss:reference>
         </xsl:for-each-group>
+                </tss:references>
+            </tss:library>
+        </tss:senteContainer>
     </xsl:template>
     
     <xsl:template name="t_generate-notes">
@@ -50,14 +58,17 @@
         <xsl:param name="p_reference-uuid"/>
         <xsl:param name="p_input" select="document(concat(replace(base-uri(),'(.+/).+?\.xml','$1'),'Attachment.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
         <tss:attachments>
-            <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 6: IsDeleted. -->
+            <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 6: IsDeleted. -->
             <xsl:for-each select="$p_input/descendant-or-self::row[value[@column='6']='N']">
+                <xsl:variable name="v_attachment-uuid" select="value[@column='1']"/>
+                <xsl:variable name="v_attachment-location" select="document(concat(replace(base-uri(),'(.+/).+?\.xml','$1'),'AttachmentLocation.xml'))/table/rows/row[value[@column='1']=$v_attachment-uuid]"/>
                 <tss:attachmentReference
-                xml:id="{concat('uuid_',value[@column='1'])}"
+                xml:id="{concat('uuid_',$v_attachment-uuid)}"
                 correspReference="{concat('#uuid_',$p_reference-uuid)}"
                 type="{value[@column='4']}">
                     <name><xsl:value-of select="value[@column='2']"/></name>
-                    <URL><xsl:value-of select="value[@column='3']"/></URL>
+                    <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
+                    <URL><xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/></URL>
             </tss:attachmentReference>
 <!--            <tss:attachmentReference type="Portable Document Format (PDF)"/>-->
             </xsl:for-each>
