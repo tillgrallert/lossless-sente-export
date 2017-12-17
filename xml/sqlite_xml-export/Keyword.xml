@@ -7092,18 +7092,3 @@
         </row>
     </rows>
 </table>
-<index>
-    <database></database>
-    <name>KeywordRef</name>
-    <ddl>CREATE INDEX KeywordRef ON Keyword( ReferenceUUID );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>RefToKeywordAspectValue</name>
-    <ddl>CREATE INDEX RefToKeywordAspectValue ON Keyword( ReferenceUUID, KeywordValue );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>KeywordAspectValueToRef</name>
-    <ddl>CREATE INDEX KeywordAspectValueToRef ON Keyword( KeywordValue, ReferenceUUID );</ddl>
-</index>
