@@ -24198,35 +24198,3 @@
         </row>
     </rows>
 </table>
-<index>
-    <database></database>
-    <name>NonDeletedReferencePK</name>
-    <unique>true</unique>
-    <ddl>CREATE UNIQUE INDEX NonDeletedReferencePK ON Reference( IsDeleted, ReferenceUUID );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>ReferencePK</name>
-    <unique>true</unique>
-    <ddl>CREATE UNIQUE INDEX ReferencePK ON Reference( ReferenceUUID );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>AllAuthorNamesIx</name>
-    <ddl>CREATE INDEX AllAuthorNamesIx ON Reference( AllAuthorNamesAsString );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>SearchableTitleIx</name>
-    <ddl>CREATE INDEX SearchableTitleIx ON Reference( SearchableTitle );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>CitationIx</name>
-    <ddl>CREATE INDEX CitationIx ON Reference( Citation );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>RefToPubTitle</name>
-    <ddl>CREATE INDEX RefToPubTitle ON Reference( PublicationTitle );</ddl>
-</index>
