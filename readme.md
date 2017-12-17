@@ -23,12 +23,13 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
 
 - currently implemented templates
     + generating `<tss:notes>`
+        * the JSON serialisation of position in file, location on page, color, etc. needs translation to XML
     + generating `<tss:attachments>`
+    + generating `<tss:keywords>`
 - to do
     + main template for references
     + template for authors
     + template for custom fields
-    + template for keywords
 
 # Adding notes to PDFs
 
