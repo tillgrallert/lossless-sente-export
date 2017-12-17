@@ -26,6 +26,7 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     + generating `<tss:attachments>`
 - to do
     + main template for references
+    + template for authors
     + template for custom fields
     + template for keywords
 
