@@ -4,7 +4,7 @@
     xmlns:tss="http://www.thirdstreetsoftware.com/SenteXML-1.0"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    version="2.0"
+    version="3.0"
     >
     <xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="no"  />
     
@@ -18,31 +18,48 @@
             <tss:library>
                 <tss:references>
         <xsl:for-each-group select="table/rows/row" group-by="value[@column='0']">
-            <tss:reference xml:id="{concat('uuid_',current-grouping-key())}">
+            <xsl:variable name="v_reference-uuid" select="current-grouping-key()"/>
+            <tss:reference xml:id="{concat('uuid_',$v_reference-uuid)}">
                 <tss:publicationType name="{value[@column='3']}"/>
                 <!-- authors -->
                 <xsl:call-template name="t_generate-authors">
-                    <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                    <xsl:with-param name="p_reference-uuid" select="$v_reference-uuid"/>
                 </xsl:call-template>
                 <tss:dates>
                     <!-- publication dates are stored in three different rows to account for technically false dates -->
                     <tss:date type="Publication" year="{value[@column='15']}" month="{value[@column='16']}" day="{value[@column='17']}"/>
+                    <!-- column 18 -->
                     <tss:date type="Entry" year="" month="" day=""/>
+                    <!-- column 19 -->
                     <tss:date type="Modification" year="" month="" day=""/>
                     <tss:date type="Retrieval" year="" month="" day=""/>
                 </tss:dates>
                 
                 <tss:characteristics>
                     <!-- add all fields -->
+                    <!-- we need columns 4-8, 10-11,14, 20 -->
+                    <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
+                    <xsl:for-each select="value">
+                        <xsl:if test="tokenize($v_columns,',') = @column">
+                            <xsl:variable name="v_column-no" select="number(@column)"/>
+                            <tss:characteristic>
+                                <xsl:attribute name="name">
+                                    <xsl:value-of select="ancestor::table/columns/column[$v_column-no +1]/name"/>
+                                </xsl:attribute>
+                                <xsl:value-of select="."/>
+                            </tss:characteristic>
+                        </xsl:if>
+                    </xsl:for-each>
+                    <!-- add aditional fields kept in SparseAttribute.xml, including but not limited to custom fields -->
                 </tss:characteristics>
                 <xsl:call-template name="t_generate-keywords">
-                    <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                    <xsl:with-param name="p_reference-uuid" select="$v_reference-uuid"/>
                 </xsl:call-template>
                 <xsl:call-template name="t_generate-notes">
-                    <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                    <xsl:with-param name="p_reference-uuid" select="$v_reference-uuid"/>
                 </xsl:call-template>
             <xsl:call-template name="t_generate-attachments">
-                <xsl:with-param name="p_reference-uuid" select="current-grouping-key()"/>
+                <xsl:with-param name="p_reference-uuid" select="$v_reference-uuid"/>
             </xsl:call-template>
             </tss:reference>
         </xsl:for-each-group>
@@ -75,6 +92,10 @@
                     <pages><xsl:value-of select="value[@column='3']"/></pages>
                     <!-- column 8: position in attached file -->
                     <!-- column 9: annotation details; JSON including geometry, position on page, colour, strike etc. -->
+                    <!-- custom element mirroring the column name in the SQLite source -->
+                    <annotationDetails>
+                        <xsl:value-of select=" value[@column='9']"/>
+                    </annotationDetails>
                 </tss:note>
             </xsl:for-each>
         </tss:notes>
