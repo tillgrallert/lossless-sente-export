@@ -35242,14 +35242,3 @@
         </row>
     </rows>
 </table>
-<index>
-    <database></database>
-    <name>SparseAttributeByName</name>
-    <ddl>CREATE INDEX SparseAttributeByName ON SparseAttribute( AttributeName );</ddl>
-</index>
-<index>
-    <database></database>
-    <name>SparseAttributePK</name>
-    <unique>true</unique>
-    <ddl>CREATE UNIQUE INDEX SparseAttributePK ON SparseAttribute( ReferenceUUID, AttributeName );</ddl>
-</index>
