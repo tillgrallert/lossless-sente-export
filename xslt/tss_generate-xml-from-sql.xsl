@@ -4,6 +4,7 @@
     xmlns:tss="http://www.thirdstreetsoftware.com/SenteXML-1.0"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:oap="https://openarabicpe.github.io/ns"
     version="3.0" exclude-result-prefixes="xs">
     
     <xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="no"  />
@@ -30,9 +31,9 @@
                                     <!-- publication dates are stored in three different rows to account for technically false dates -->
                                     <tss:date type="Publication" year="{value[@column='15']}" month="{value[@column='16']}" day="{value[@column='17']}"/>
                                     <!-- column 18 -->
-                                    <tss:date type="Entry" year="" month="" day=""/>
+                                    <tss:date type="Entry" year="{year-from-date(oap:iso-date(value[@column='18']))}" month="{month-from-date(oap:iso-date(value[@column='18']))}" day="{day-from-date(oap:iso-date(value[@column='18']))}"/>
                                     <!-- column 19 -->
-                                    <tss:date type="Modification" year="" month="" day=""/>
+                                    <tss:date type="Modification" year="{year-from-date(oap:iso-date(value[@column='19']))}" month="{month-from-date(oap:iso-date(value[@column='19']))}" day="{day-from-date(oap:iso-date(value[@column='19']))}"/>
                                     <tss:date type="Retrieval" year="" month="" day=""/>
                                 </tss:dates>
                                 
@@ -98,9 +99,10 @@
                     correspAttachment="{concat('#uuid_',value[@column='7'])}"
                     editor="{concat('Sente User ',value[@column='14'])}">
                     <xsl:attribute name="when-iso">
-                        <xsl:call-template name="t_iso-timestamp">
+                        <xsl:value-of select="oap:iso-timestamp(value[@column='11'])"/>
+                        <!--<xsl:call-template name="t_iso-timestamp">
                             <xsl:with-param name="p_input" select="value[@column='11']"/>
-                        </xsl:call-template>
+                        </xsl:call-template>-->
                     </xsl:attribute>
                     <!-- some css based on the JSON data stream -->
                         <xsl:choose>
@@ -149,9 +151,10 @@
                 type="{value[@column='4']}"
                 editor="{concat('Sente User ',value[@column='13'])}">
                     <xsl:attribute name="when-iso">
-                        <xsl:call-template name="t_iso-timestamp">
+                        <xsl:value-of select="oap:iso-timestamp(value[@column='8'])"/>
+                        <!--<xsl:call-template name="t_iso-timestamp">
                             <xsl:with-param name="p_input" select="value[@column='8']"/>
-                        </xsl:call-template>
+                        </xsl:call-template>-->
                     </xsl:attribute>
                     <name><xsl:value-of select="value[@column='2']"/></name>
                     <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
@@ -192,9 +195,13 @@
         </tss:keywords>
     </xsl:template>
     
-    <xsl:template name="t_iso-timestamp">
+    <xsl:function name="oap:iso-timestamp">
         <xsl:param name="p_input"/>
         <xsl:value-of select="replace($p_input,'(\d+-\d+-\d+)\s(\d+:\d+:\d+)\s(.+)$','$1T$2$3')"/>
-    </xsl:template>
+    </xsl:function>
+    <xsl:function name="oap:iso-date">
+        <xsl:param name="p_input"/>
+        <xsl:value-of select="replace($p_input,'(\d+-\d+-\d+)\s(\d+:\d+:\d+)\s(.+)$','$1')"/>
+    </xsl:function>
     
 </xsl:stylesheet>
