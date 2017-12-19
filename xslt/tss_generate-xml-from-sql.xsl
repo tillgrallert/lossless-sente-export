@@ -38,21 +38,24 @@
                                 </tss:dates>
                                 
                                 <tss:characteristics>
-                                    <!-- add all fields -->
+                                    <tss:characteristic name="UUID">
+                                        <xsl:value-of select="$v_reference-uuid"/>
+                                    </tss:characteristic>
+                                    <!-- add all relevant bibliographic fields -->
                                     <!-- we need columns 4-8, 10-11,14, 20 -->
                                     <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
                                     <xsl:for-each select="value">
                                         <xsl:if test="tokenize($v_columns,',') = @column">
                                             <xsl:variable name="v_column-no" select="number(@column)"/>
-                                            <tss:characteristic>
-                                                <xsl:attribute name="name">
-                                                    <xsl:value-of select="ancestor::table/columns/column[$v_column-no +1]/name"/>
-                                                </xsl:attribute>
+                                            <tss:characteristic name="{ancestor::table/columns/column[$v_column-no +1]/name}">
                                                 <xsl:value-of select="."/>
                                             </tss:characteristic>
                                         </xsl:if>
                                     </xsl:for-each>
                                     <!-- add aditional fields kept in SparseAttribute.xml, including but not limited to custom fields -->
+                                    <xsl:call-template name="t_generate-characteristics">
+                                        <xsl:with-param name="p_reference-uuid" select="$v_reference-uuid"/>
+                                    </xsl:call-template>
                                 </tss:characteristics>
                                 <xsl:call-template name="t_generate-keywords">
                                     <xsl:with-param name="p_reference-uuid" select="$v_reference-uuid"/>
@@ -69,6 +72,20 @@
                 </tss:library>
             </tss:senteContainer>
         </xsl:result-document>
+    </xsl:template>
+    
+    <xsl:template name="t_generate-characteristics">
+        <!-- the template takes a reference UUID as input and queries the SparseAttribute.xml file for any rows relating to this reference -->
+        <xsl:param name="p_reference-uuid"/>
+        <xsl:param name="p_input" select="document(concat($v_input-folder,'SparseAttribute.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
+        <xsl:for-each select="$p_input/descendant-or-self::row">
+            <!-- exclude certain rows -->
+            <xsl:if test="not(value[@column='1']=('Retrieval year', 'Retrieval month', 'Retrieval day'))">
+                <tss:characteristic name="{value[@column='1']}">
+                    <xsl:value-of select="value[@column='2']"/>
+                </tss:characteristic>
+            </xsl:if>
+        </xsl:for-each>
     </xsl:template>
     
     <xsl:template name="t_generate-notes">
