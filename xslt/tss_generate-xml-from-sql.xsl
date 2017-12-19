@@ -76,6 +76,23 @@
             <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 10: IsDeleted. -->
             <!-- In addition, the Note.xml file also contains all notes attached to references long since deleted, which, however, will not be marked as having been deleted themselves -->
             <xsl:for-each select="$p_input/descendant-or-self::row[value[@column='10']='N']">
+                <xsl:variable name="v_color">
+                    <xsl:analyze-string select="value[@column='9']" regex="'RGBA.+?\[(.+?)\]'">
+                        <xsl:matching-substring>
+                            <xsl:value-of select="regex-group(1)"/>
+                        </xsl:matching-substring>
+                        <xsl:non-matching-substring>
+                            <xsl:text>none</xsl:text>
+                        </xsl:non-matching-substring>
+                    </xsl:analyze-string>
+                </xsl:variable>
+                <xsl:variable name="v_type">
+                    <xsl:analyze-string select="value[@column='9']" regex="'Original Selection Mode&quot;:&quot;(.+?)&quot;'">
+                        <xsl:matching-substring>
+                            <xsl:value-of select="lower-case(regex-group(1))"/>
+                        </xsl:matching-substring>
+                    </xsl:analyze-string>
+                </xsl:variable>
                 <tss:note 
                     xml:id="{concat('uuid_',value[@column='0'])}"  
                     correspReference="{concat('#uuid_',$p_reference-uuid)}" 
@@ -85,6 +102,10 @@
                         <xsl:call-template name="t_iso-timestamp">
                             <xsl:with-param name="p_input" select="value[@column='11']"/>
                         </xsl:call-template>
+                    </xsl:attribute>
+                    <!-- some css based on the JSON data stream -->
+                    <xsl:attribute name="style">
+                        <xsl:text>background-color</xsl:text>
                     </xsl:attribute>
                     <title><xsl:value-of select="value[@column='2']"/></title>
                     <comment><xsl:value-of select="value[@column='5']"/></comment>
