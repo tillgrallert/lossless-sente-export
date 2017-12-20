@@ -26,8 +26,44 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     + generating `<tss:notes>`
         * only some parts of the JSON serialisation of position in file, location on page, color, etc. have been translated into CSS styling attributes
         * The entire JSON serialisation is kept for further processing in a new custom child of `<tss:note>` named `<tss:annotationDetails>`
+        
+    ~~~{.xml}
+    <tss:note 
+     xml:id="uuid_0B3368F6-BF56-49BE-94B5-396D0B7F50BC"
+     correspReference="#uuid_21D0D0DC-FFFE-4DF7-B588-EF192D1427B9"
+     correspAttachment="#uuid_CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1"
+     editor="Sente User Sebastian"
+     when-iso="2017-12-17T09:18:22+0000"
+     style="display:block; border-style:solid; border-radius: 3px; border-width: 4px; border-color: rgba(1,0.3137255,0.3137255,0.2);">
+        <title>test note</title>
+        <comment>Some comment</comment>
+        <quotation>ḥawādith al-wilāya</quotation>
+        <pages>1</pages>
+        <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{551.498474,504.381134}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{430.897891,504.381134},{120.600583,136.688866}}","Rectangles":[{"Stroke RGBA":[1,0.3137255,0.3137255,0.2],"Bounds":"{{430.897891,504.381134},{120.600583,136.688866}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{430.897891,641.070000}"}</annotationDetails>
+    </tss:note>
+    ~~~
+
     + generating `<tss:attachments>`
+    
+    ~~~{.xml}
+    <tss:attachmentReference 
+     xml:id="uuid_9F730A80-E794-4726-8141-D37EEF4B51F5"
+     correspReference="#uuid_9ED5D922-8984-4EBB-951B-11919769814A"
+     type=""
+     editor="Sente User Sebastian"
+     when-iso="2017-11-07T11:11:42+0000">
+        <name/>
+        <URL>(null):images/pdfs/oclc_792755216-i_1.pdf</URL>
+    </tss:attachmentReference>
+    ~~~
+
     + generating `<tss:keywords>`
+
+    ~~~{.xml}
+    <tss:keyword 
+     assigner="Sente User Sebastian"
+     correspReference="#uuid_21D0D0DC-FFFE-4DF7-B588-EF192D1427B9">Source</tss:keyword>
+    ~~~
 
 ## Workflow
 
@@ -35,7 +71,9 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
 2. Open your Sente library with SQLiteStudio
 3. Export all tables emphasised in bold in the documentation below to XML using the table names as file names.
 4. Manually remove the trailing `<index>` nodes from every XML file as those prevent the files from being well-formed XML.
-5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database and will be saved in the `_output/` folder and can be used for further processing.
+5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing. Options to apply the transformation include:
+    + running Saxon-HE in the terminal if one is familiar with java
+    + using one of the XML editors that include an XSLT processor, such as oXygen (30 days trial licences available)
 
 # Problem 2: no batch export of annotated PDFs
 
