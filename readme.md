@@ -72,7 +72,13 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
 3. Export all tables emphasised in bold in the documentation below to XML using the table names as file names.
 4. Manually remove the trailing `<index>` nodes from every XML file as those prevent the files from being well-formed XML.
 5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing. Options to apply the transformation include:
-    + running Saxon-HE in the terminal if one is familiar with java
+    + running [Saxon-HE]() in the terminal:
+
+    ~~~
+    $ cd path-to-folder
+    $ java -jar "path-to-saxon9he.jar" -s:xml/Reference.xml -xsl:xslt/tss_generate-xml-from-sql.xsl
+    ~~~
+
     + using one of the XML editors that include an XSLT processor, such as oXygen (30 days trial licences available)
 
 # Problem 2: no batch export of annotated PDFs
