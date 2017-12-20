@@ -72,7 +72,7 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
 3. Export all tables emphasised in bold in the documentation below to XML using the table names as file names.
 4. Manually remove the trailing `<index>` nodes from every XML file as those prevent the files from being well-formed XML.
 5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing. Options to apply the transformation include:
-    + running [Saxon-HE]() in the terminal:
+    + running [Saxon-HE](http://saxon.sourceforge.net/#F9.8HE) for Java in the terminal:
 
     ~~~
     $ cd path-to-folder
