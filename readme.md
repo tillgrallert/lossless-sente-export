@@ -44,6 +44,8 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     ~~~
 
     + generating `<tss:attachments>`
+        * Problem: local paths are stored as alphanumerical strings and I don't know how to translate them into proper paths; e.a. `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24gQXV0aG9yKHMpLzE5NTgvW0dhbcSBbCDKv0FiZCBhbC1OYeG5o3LigJlzIGNvbnZveSBvLmpwZzwvc3RyaW5nPgo8L2RpY3Q+CjwvcGxpc3Q+Cg==`
+        * example XML:
     
     ~~~{.xml}
     <tss:attachmentReference 
