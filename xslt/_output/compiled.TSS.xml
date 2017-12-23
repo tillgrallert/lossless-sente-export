@@ -2,7 +2,9 @@
 <tss:senteContainer xmlns:tss="http://www.thirdstreetsoftware.com/SenteXML-1.0"
                     xmlns:tei="http://www.tei-c.org/ns/1.0"
                     xmlns:html="http://www.w3.org/1999/xhtml"
-                    xmlns:oap="https://openarabicpe.github.io/ns">
+                    xmlns:oap="https://openarabicpe.github.io/ns"
+                    xmlns:b64="https://github.com/ilyakharlamov/xslt_base64"
+                    xmlns:bin="http://expath.org/ns/binary">
    <tss:library>
       <tss:references>
          <tss:reference xml:id="uuid_0FCECDAF-8F85-4582-81C1-ECEEE89088FD">
@@ -97,7 +99,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:05+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -111,7 +113,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:05+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -480,7 +482,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -592,7 +594,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:07+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -764,7 +766,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:05+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -840,7 +842,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:05+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -912,7 +914,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:05+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1175,7 +1177,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1252,7 +1254,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1322,7 +1324,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1398,7 +1400,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1468,7 +1470,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:07+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1546,7 +1548,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:07+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1612,7 +1614,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:07+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1678,7 +1680,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1746,7 +1748,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:07+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -1814,7 +1816,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -2291,7 +2293,7 @@
                                         editor="Sente User Sebastian"
                                         when-iso="2014-02-11T10:47:06+0000">
                   <name/>
-                  <URL>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+                  <URL type="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
             IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
             ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
             Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
@@ -2350,6 +2352,7 @@
                   <comment>$$terminology$$  $$prices$$</comment>
                   <quotation/>
                   <pages/>
+                  <locationInAttachedFile/>
                   <annotationDetails/>
                </tss:note>
                <tss:note xml:id="uuid_D483A049-0AA8-43F7-B8F0-984EE249BA5B"
@@ -2363,6 +2366,7 @@
                   <comment>$$food$$ $$riot$$ $$stuff$$</comment>
                   <quotation/>
                   <pages/>
+                  <locationInAttachedFile/>
                   <annotationDetails/>
                </tss:note>
                <tss:note xml:id="uuid_93F9969A-86BD-49CE-B566-C4458B58D585"
@@ -2376,6 +2380,7 @@
                   <comment>hallo torste (du banane)</comment>
                   <quotation/>
                   <pages/>
+                  <locationInAttachedFile/>
                   <annotationDetails/>
                </tss:note>
             </tss:notes>
@@ -31168,6 +31173,7 @@
                   <comment>Some comment</comment>
                   <quotation>ḥawādith al-wilāya</quotation>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":559.4985,"Page":1,"Y":641.07}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{551.498474,504.381134}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{430.897891,504.381134},{120.600583,136.688866}}","Rectangles":[{"Stroke RGBA":[1,0.3137255,0.3137255,0.2],"Bounds":"{{430.897891,504.381134},{120.600583,136.688866}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{430.897891,641.070000}"}</annotationDetails>
                </tss:note>
                <tss:note xml:id="uuid_4A95E39D-7C98-404A-A6D5-D8FA63A79E6C"
@@ -31182,6 +31188,7 @@
                   <comment/>
                   <quotation/>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":107.7096,"Page":1,"Y":617.4083}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{176.192032,578.936584}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{115.709635,578.936584},{60.482397,38.471729}}","Rectangles":[{"Stroke RGBA":[0.9960784,0.8745098,0,0.2],"Bounds":"{{115.709635,578.936584},{60.482397,38.471729}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{115.709635,617.408313}"}</annotationDetails>
                </tss:note>
                <tss:note xml:id="uuid_AAE0974A-3200-4447-9C7F-67689370BFC6"
@@ -31196,6 +31203,7 @@
                   <comment/>
                   <quotation/>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":108.8724,"Page":1,"Y":569.3504}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{174.455536,511.967773}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{116.872367,511.967773},{57.583169,57.382630}}","Rectangles":[{"Stroke RGBA":[1,0.3137255,0.3137255,0.2],"Bounds":"{{116.872367,511.967773},{57.583169,57.382630}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{116.872367,569.350404}"}</annotationDetails>
                </tss:note>
                <tss:note xml:id="uuid_9DC5CCD6-B4BA-4FE1-ADBA-13DDC5C435D0"
@@ -31210,6 +31218,7 @@
                   <comment/>
                   <quotation/>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":192.8023,"Page":1,"Y":608.4974}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{243.275070,564.821350}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{200.802345,564.821350},{42.472725,43.676067}}","Rectangles":[{"Stroke RGBA":[0.3921569,0.627451,0.7843137,0.2],"Bounds":"{{200.802345,564.821350},{42.472725,43.676067}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{200.802345,608.497417}"}</annotationDetails>
                </tss:note>
                <tss:note xml:id="uuid_DEEEB975-94B3-4819-8FB7-608C11887638"
@@ -31224,6 +31233,7 @@
                   <comment/>
                   <quotation/>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":203.4523,"Page":1,"Y":550.371}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{262.003204,499.492523}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{211.452262,499.492523},{50.550942,50.878434}}","Rectangles":[{"Stroke RGBA":[0.4392157,0.6431373,0.5372549,0.2],"Bounds":"{{211.452262,499.492523},{50.550942,50.878434}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{211.452262,550.370957}"}</annotationDetails>
                </tss:note>
                <tss:note xml:id="uuid_1ADA19BC-04E2-495B-A596-9D5FB32131A8"
@@ -31238,6 +31248,7 @@
                   <comment/>
                   <quotation/>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":328.6907,"Page":1,"Y":610.833}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{320.690704,567.009705}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{271.363440,567.009705},{49.327264,43.823332}}","Rectangles":[{"Stroke RGBA":[0.5764706,0.3137255,0.6196079,0.2],"Bounds":"{{271.363440,567.009705},{49.327264,43.823332}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{271.363440,610.833037}"}</annotationDetails>
                </tss:note>
                <tss:note xml:id="uuid_5EDDD446-FCB4-4D57-A90A-AE1C4AB5623E"
@@ -31252,6 +31263,7 @@
                   <comment/>
                   <quotation/>
                   <pages>1</pages>
+                  <locationInAttachedFile>{"Encoding":"V1","X":345.7382,"Page":1,"Y":554.2501}</locationInAttachedFile>
                   <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{337.738190,489.913940}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{286.583048,489.913940},{51.155142,64.336176}}","Rectangles":[{"Stroke RGBA":[0.9647059,0.572549,0.2509804,0.2],"Bounds":"{{286.583048,489.913940},{51.155142,64.336176}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{286.583048,554.250116}"}</annotationDetails>
                </tss:note>
             </tss:notes>
