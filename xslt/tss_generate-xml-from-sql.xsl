@@ -249,7 +249,6 @@
                                         <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:attribute name="type"/>
                                         <xsl:variable name="v_plist-as-string">
                                             <xsl:value-of select="bin:decode-string(xs:base64Binary($v_attachment-location/descendant-or-self::row/value[@column='4']))"/>
                                         </xsl:variable>
