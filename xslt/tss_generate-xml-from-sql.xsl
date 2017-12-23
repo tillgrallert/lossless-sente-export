@@ -249,11 +249,17 @@
                                         <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:attribute name="type" select="'xml'"/>
+                                        <xsl:attribute name="type"/>
                                         <xsl:variable name="v_plist-as-string">
                                             <xsl:value-of select="bin:decode-string(xs:base64Binary($v_attachment-location/descendant-or-self::row/value[@column='4']))"/>
                                         </xsl:variable>
-                                        <xsl:value-of select="substring-after(substring-before($v_plist-as-string,'&lt;/string'),'string&gt;')"/>
+                                        <xsl:variable name="v_relative-file-path">
+                                            <xsl:value-of select="substring-after(substring-before($v_plist-as-string,'&lt;/string'),'string&gt;')"/>
+                                        </xsl:variable>
+                                        <xsl:variable name="v_base-url">
+                                            <xsl:value-of select="substring-before(document(concat($v_input-folder,'LibraryProperty.xml'))/table/rows/row[value[@column='0']='Library Location']/value[@column='1'],'primaryLibrary.sente601')"/>
+                                        </xsl:variable>
+                                        <xsl:value-of select="concat($v_base-url,'Attachments/',$v_relative-file-path)"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 
