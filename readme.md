@@ -91,6 +91,7 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     ~~~
 
     + using one of the XML editors that include an XSLT processor, such as oXygen (30 days trial licences available)
+        * In this case, you should set the parameter `$p_limited-to-saxon-he` to `false()` in order to translate base64 binary data to proper file paths to attachments.
 
 # Problem 2: no batch export of annotated PDFs
 
@@ -107,7 +108,7 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
     - this table was clearly planned to contain information on which references is part of which collection, but this information was never stored here.
 6. **Keyword**
 7. Library: empty
-8. LibraryProperty: stores basic settings
+8. **LibraryProperty**: stores basic settings, including the path to the Sente library and thus attachments. If you have access to Saxon PE or Saxon EE, export this table as XML
 9. **Note**:
     - This is the most important table to improve the generic XML export
     - contains information otherwise missing as JSON:
