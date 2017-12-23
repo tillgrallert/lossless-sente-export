@@ -9,17 +9,20 @@ Sente natively supports a number of export options of bibliographic data as well
 
 # Problem 1: incomplete XML export
 
-Sente supports XML export following its own schema; but some important information is missing from this export, particularly for the notes attached to PDFs:
+Sente supports XML export following its own schema; but some important information is missing from this export, 
 
-- colour of the note
-- the UUID of the PDF this note is pointing to (important in the case of more than one attachment to a reference)
-- exact location of the note in the PDF
+- particularly for the notes attached to PDFs:
+    - colour of the note;
+    - the UUID of the PDF this note is pointing to (important in the case of more than one attachment to a reference);
+    - exact location of the note in the PDF.
+- other information missing:
+    + the collections a reference is part of;[^1]
 
 ## Solution
 
 Sente is built on the open SQLite database and thus the necessary information can be retrieved using appropriate SQL queries. This requires in-depth knowledge of the underlying database's structure, which some people in the community have already acquired. [*Mrobe*](https://github.com/mrobe), for instance, built his immensely helpful and popular "[Sente Assistant](https://github.com/mrobe/senteAssistant)" on direct queries to the underlying database.
 
-After some poking around, I settled on using the free, multi-platform [SQLiteStudio](http://sqlitestudio.pl) to export all tables as generic XML. This export is then be transformed into standard Sente XML with a few custom additions using the XSLT stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) in this repository..
+After some poking around, I settled on using the free, multi-platform [SQLiteStudio](http://sqlitestudio.pl) to export all tables as generic XML. This export is then be transformed into standard Sente XML with a few custom additions using the XSLT stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) in this repository.
 
 - currently implemented templates
     + main template for all `<tss:reference>`s, including all custom fields
@@ -39,12 +42,18 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
         <comment>Some comment</comment>
         <quotation>ḥawādith al-wilāya</quotation>
         <pages>1</pages>
+        <locationInAttachedFile>{"Encoding":"V1","X":559.4985,"Page":1,"Y":641.07}</locationInAttachedFile>
         <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{551.498474,504.381134}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{430.897891,504.381134},{120.600583,136.688866}}","Rectangles":[{"Stroke RGBA":[1,0.3137255,0.3137255,0.2],"Bounds":"{{430.897891,504.381134},{120.600583,136.688866}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{430.897891,641.070000}"}</annotationDetails>
     </tss:note>
     ~~~
 
     + generating `<tss:attachments>`
-        * Problem: local paths are stored as alphanumerical strings and I don't know how to translate them into proper paths; e.a. `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24gQXV0aG9yKHMpLzE5NTgvW0dhbcSBbCDKv0FiZCBhbC1OYeG5o3LigJlzIGNvbnZveSBvLmpwZzwvc3RyaW5nPgo8L2RpY3Q+CjwvcGxpc3Q+Cg==`
+        * Problem: local paths are stored as alphanumerical strings using Base64 and I don't know how to translate them into proper paths; e.a. `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
+            IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
+            ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
+            Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
+            QXV0aG9yKHMpLzE5MTAvW01vc3F1ZSBvZiDKv8Sqc8SBIFBhc2hhXS5qcGc8L3N0cmluZz4K
+            PC9kaWN0Pgo8L3BsaXN0Pgo=`
         * example XML:
     
     ~~~{.xml}
@@ -71,14 +80,19 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
 
 1. Download and install [SQLiteStudio](http://sqlitestudio.pl)
 2. Open your Sente library with SQLiteStudio
+    - on macOS do the following: 
+        + In the Finder, right-click on your Sente library and select `Show Package Contents`.
+        + The actual SQLite database is then located at `Contents/primaryLibrary.sente601`
 3. Export all tables emphasised in bold in the documentation below to XML using the table names as file names.
-4. Manually remove the trailing `<index>` nodes from every XML file as those prevent the files from being well-formed XML.
-5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing. Options to apply the transformation include:
+4. Open all XML files in a text editor and manually remove the trailing `<index>` nodes from every XML file as these prevent the files from being well-formed XML.
+5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing. 
+
+    Options to apply the transformation include:
+
     + running [Saxon-HE](http://saxon.sourceforge.net/#F9.8HE) for Java in the terminal:
 
     ~~~
-    $ cd path-to-folder
-    $ java -jar "path-to-saxon9he.jar" -s:xml/Reference.xml -xsl:xslt/tss_generate-xml-from-sql.xsl
+    $ java -jar "path/to/saxon9he.jar" -s:"path/to/Reference.xml" -xsl:"path/to/tss_generate-xml-from-sql.xsl"
     ~~~
 
     + using one of the XML editors that include an XSLT processor, such as oXygen (30 days trial licences available)
@@ -93,11 +107,12 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 1. **Attachment**
 2. **AttachmentLocation**
 3. **Author**
-4. Collection: empty
-5. CollectionReference
+4. Collection: one row for every collection
+5. CollectionReference: empty
+    - this table was clearly planned to contain information on which references is part of which collection, but this information was never stored here.
 6. **Keyword**
 7. Library: empty
-8. LibraryProperty
+8. LibraryProperty: stores basic settings
 9. **Note**:
     - This is the most important table to improve the generic XML export
     - contains information otherwise missing as JSON:
@@ -122,3 +137,5 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 23. Thumbnail
 24. VersionedLibraryProperty
 
+
+[^1]: It is unclear where this information is kept in the SQLite data base
