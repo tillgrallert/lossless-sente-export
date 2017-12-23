@@ -48,12 +48,7 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     ~~~
 
     + generating `<tss:attachments>`
-        * Problem: local paths are stored as alphanumerical strings using Base64 and I don't know how to translate them into proper paths; e.a. `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0
-            IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBs
-            ZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAi
-            Pgo8ZGljdD4KCTxrZXk+UmVsYXRpdmUgUGF0aDwva2V5PgoJPHN0cmluZz4hIFVua25vd24g
-            QXV0aG9yKHMpLzE5MTAvW01vc3F1ZSBvZiDKv8Sqc8SBIFBhc2hhXS5qcGc8L3N0cmluZz4K
-            PC9kaWN0Pgo8L3BsaXN0Pgo=`
+        * Problem: local paths are stored as alphanumerical strings using Base64. There are numerous implementations to convert `xs:base64Binary` to `xs:string` but none of the available extensions ([saxon's `saxon:base64Binary-to-string`]() and [EXPath's `bin:decode-string()`](http://expath.org/spec/binary#decode-string)) and [stylesheets](https://github.com/ilyakharlamov/xslt_base64) is both free to use and can deal with unicode. Thus, I decided to leave base64 binary data as it is.
         * example XML:
     
     ~~~{.xml}
