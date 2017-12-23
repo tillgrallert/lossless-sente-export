@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <database></database>
+    <name>LibraryProperty</name>
+    <ddl>CREATE TABLE LibraryProperty ( PropertyName varchar, PropertyValue varchar );</ddl>
+    <columns>
+        <column>
+            <name>PropertyName</name>
+            <type>varchar</type>
+        </column>
+        <column>
+            <name>PropertyValue</name>
+            <type>varchar</type>
+        </column>
+    </columns>
+    <rows>
+        <row>
+            <value column="0">Library Instance UUID</value>
+            <value column="1">2F906745-E8E3-4EBF-B5DC-3BA7651AC189</value>
+        </row>
+        <row>
+            <value column="0">PrevHostIDs</value>
+            <value column="1">10ddb1c7a618|003ee1c3d2aa|</value>
+        </row>
+        <row>
+            <value column="0">HostID</value>
+            <value column="1">10ddb1c7a618</value>
+        </row>
+        <row>
+            <value column="0">Main Window 6.5 Frames By Screen</value>
+            <value column="1"><![CDATA[{"{{0, 0}, {1280, 800}}":"{{0, 4}, {1280, 773}}","{{0, 0}, {2560, 1440}}":"{{0, 644}, {1280, 773}}","{{0, 0}, {1920, 1080}}":"{{0, 4}, {1920, 1053}}","{{0, 0}, {1280, 1024}}":"{{0, 4}, {1280, 998}}"}]]></value>
+        </row>
+        <row>
+            <value column="0">Attachment Management Behavior</value>
+            <value column="1">Store Inside Library Bundle</value>
+        </row>
+        <row>
+            <value column="0">Library Location</value>
+            <value column="1">/Volumes/Dessau HD/BachUni/BachBibliothek/SenteLibrary/TestCopy.sente6lib/Contents/primaryLibrary.sente601</value>
+        </row>
+        <row>
+            <value column="0">Attachment Management Enabled or Disabled</value>
+            <value column="1">Enabled</value>
+        </row>
+        <row>
+            <value column="0">Attachment Original Files Should Be Deleted</value>
+            <value column="1">Do Not Delete Originals</value>
+        </row>
+        <row>
+            <value column="0">Main Window Saved Tab Configurations</value>
+            <value column="1"><![CDATA[[{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":281,"Reference List Height":537,"Reference Editor Configuration":5,"Reference List Width":808,"Basic Layout":"Reference List Left of PDF","Attachment Pane Visible":true},"Matching Conditions":{"Screen Dimensions":"{1920, 1080}","Full-Screen or Windowed":"Windowed","Top Level Tab Class":"ODSourceListTabController"}},{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":360,"Reference List Height":206,"Reference Editor Configuration":5,"Reference List Width":360,"Basic Layout":"Reference List Above PDF","Attachment Pane Visible":true},"Matching Conditions":{"Screen Dimensions":"{1280, 800}","Full-Screen or Windowed":"Windowed","Top Level Tab Class":"ODSourceListTabController"}},{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":360,"Reference List Height":350,"Reference Editor Configuration":9,"Reference List Width":360,"Basic Layout":"Reference List Above PDF","Attachment Pane Visible":true},"Matching Conditions":{"Screen Dimensions":"{1280, 1024}","Full-Screen or Windowed":"Windowed","Top Level Tab Class":"ODSourceListTabController"}},{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":360,"Reference List Height":206,"Reference Editor Configuration":5,"Reference List Width":360,"Basic Layout":"Reference List Above PDF","Attachment Pane Visible":true},"Matching Conditions":{"Screen Dimensions":"{2560, 1440}","Full-Screen or Windowed":"Windowed","Top Level Tab Class":"ODSourceListTabController"}},{"View Configuration":{"Reference Editor Visible":true,"Reference Editor Width":360,"Reference Editor Configuration":6},"Matching Conditions":{"Top Level Tab Class":"ODSingleReferenceTabController","Full-Screen or Windowed":"Windowed","Screen Dimensions":"{1280, 800}"}}]]]></value>
+        </row>
+        <row>
+            <value column="0">Attachment External Root Dir</value>
+            <value column="1">~/Documents/Sente</value>
+        </row>
+        <row>
+            <value column="0">Freestanding Editor Window - Editor State</value>
+            <value column="1">1</value>
+        </row>
+        <row>
+            <value column="0">Main Window 6.5 Tab State Snapshot</value>
+            <value column="1"><![CDATA[{"Window Frame":"{{0, 4}, {1280, 773}}","Tabs":[{"Embedded Tab Snapshot":{"Tab Class Name":"ODReferenceListTabController","Selected Collection UUID":"2F906745-E8E3-4EBF-B5DC-3BA7651AC189","Cached View Configurations":[{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":281,"Reference List Height":537,"Reference Editor Configuration":5,"Reference List Width":808,"Basic Layout":"Reference List Left of PDF","Attachment Pane Visible":true},"Matching Conditions":{"Screen Dimensions":"{1920, 1080}","Full-Screen or Windowed":"Windowed","Top Level Tab Class":"ODSourceListTabController"}},{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":360,"Reference List Height":206,"Reference Editor Configuration":5,"Reference List Width":360,"Basic Layout":"Reference List Above PDF","Attachment Pane Visible":true},"Matching Conditions":{"Top Level Tab Class":"ODSourceListTabController","Full-Screen or Windowed":"Windowed","Screen Dimensions":"{1280, 800}"}},{"View Configuration":{"Reference Editor Visible":true,"Reference List Format":"Grid","Reference Editor Width":360,"Reference List Height":206,"Reference Editor Configuration":5,"Reference List Width":360,"Basic Layout":"Reference List Above PDF","Attachment Pane Visible":true},"Matching Conditions":{"Screen Dimensions":"{2560, 1440}","Full-Screen or Windowed":"Windowed","Top Level Tab Class":"ODSourceListTabController"}}],"Reference Editor Configuration":5,"Selected Reference UUIDs":["21D0D0DC-FFFE-4DF7-B588-EF192D1427B9"]},"Tab Class Name":"ODSourceListTabController","Selected Item":"All References","Open Items":{"LOCAL COLLECTIONS":"No open children","LIBRARY SETUP":"No open children","LIBRARY":{"Canned Filter Group: Statuses":"No open children","Canned Filter Group: Recent":"No open children"},"SAVED SEARCHES":"No open children"}},{"Reference UUID":"21D0D0DC-FFFE-4DF7-B588-EF192D1427B9","Tab Class Name":"ODSingleReferenceTabController","Cached View Configurations":[{"View Configuration":{"Reference Editor Visible":true,"Reference Editor Width":360,"Reference Editor Configuration":6},"Matching Conditions":{"Top Level Tab Class":"ODSingleReferenceTabController","Full-Screen or Windowed":"Windowed","Screen Dimensions":"{1280, 800}"}}],"Reference Editor Configuration":6}],"QuickTags Visible":false,"Toolbar Visible":false}]]></value>
+        </row>
+        <row>
+            <value column="0">Reference count at time of last VACUUM</value>
+            <value column="1">159</value>
+        </row>
+        <row>
+            <value column="0">Hotwords Should Be Highlighted</value>
+            <value column="1">Y</value>
+        </row>
+        <row>
+            <value column="0">Types of Items to Index in Spotlight</value>
+            <value column="1">Attachment</value>
+        </row>
+        <row>
+            <value column="0">Library Schema Version</value>
+            <value column="1">603</value>
+        </row>
+        <row>
+            <value column="0">Attachment File Naming Scheme</value>
+            <value column="1">{&quot;Filename Stem Component Names&quot;:[&quot;Title&quot;],&quot;Filename Stem Scheme Version&quot;:&quot;1&quot;}</value>
+        </row>
+        <row>
+            <value column="0">Approximate reference count</value>
+            <value column="1">806</value>
+        </row>
+        <row>
+            <value column="0">Library Engine Name</value>
+            <value column="1">SQLite 3 Engine for Sente 6 (1.1)</value>
+        </row>
+        <row>
+            <value column="0">Library Access Method</value>
+            <value column="1">SQLite 3.5</value>
+        </row>
+        <row>
+            <value column="0">Migration of 6.2 Custom Fields Is No Longer Necessary</value>
+            <value column="1">2013-12-17 00:32:58 +0000</value>
+        </row>
+        <row>
+            <value column="0">Toolbar Reference List Formats</value>
+            <value column="1">showGridReferenceList:</value>
+        </row>
+        <row>
+            <value column="0">Attachment Subfolders</value>
+            <value column="1">[&quot;First Author (Last name, forenames)&quot;,&quot;Year of Publication&quot;]</value>
+        </row>
+        <row>
+            <value column="0">QuickTags Window Relative Frame</value>
+            <value column="1">{{911, 438}, {240, 270}}</value>
+        </row>
+        <row>
+            <value column="0">Attachment Max Filename Length</value>
+            <value column="1">30</value>
+        </row>
+        <row>
+            <value column="0">Library Instance Name</value>
+            <value column="1">primaryLibrary</value>
+        </row>
+    </rows>
+</table>
