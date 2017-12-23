@@ -107,12 +107,38 @@
             <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 10: IsDeleted. -->
             <!-- In addition, the Note.xml file also contains all notes attached to references long since deleted, which, however, will not be marked as having been deleted themselves -->
             <xsl:for-each select="$p_input/descendant-or-self::row[value[@column='10']='N']">
-                <xsl:variable name="v_color">
+                <xsl:variable name="v_color-rgba">
                     <xsl:analyze-string select="value[@column='9']" regex="RGBA.+?\[(.+?)\]">
                         <xsl:matching-substring>
                             <xsl:value-of select="regex-group(1)"/>
                         </xsl:matching-substring>
                     </xsl:analyze-string>
+                </xsl:variable>
+                <!-- translate rgba to colour names -->
+                <xsl:variable name="v_color">
+                    <xsl:choose>
+                        <xsl:when test="$v_color-rgba = '0.9960784,0.8745098,0,0.2'">
+                            <xsl:text>yellow</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="$v_color-rgba = '1,0.3137255,0.3137255,0.2'">
+                            <xsl:text>red</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="$v_color-rgba = '0.3921569,0.627451,0.7843137,0.2'">
+                            <xsl:text>blue</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="$v_color-rgba = '0.4392157,0.6431373,0.5372549,0.2'">
+                            <xsl:text>green</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="$v_color-rgba = '0.5764706,0.3137255,0.6196079,0.2'">
+                            <xsl:text>purple</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="$v_color-rgba = '0.9647059,0.572549,0.2509804,0.2'">
+                            <xsl:text>orange</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text>unknown</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:variable>
                 <xsl:variable name="v_type">
                     <xsl:analyze-string select="value[@column='9']" regex="Original Selection Mode&quot;:&quot;(.+?)&quot;">
@@ -137,17 +163,18 @@
                             <xsl:when test="$v_type='text'">
                                 <xsl:attribute name="style">
                                 <xsl:text>display:inline-block;</xsl:text>
-                                <xsl:text>background-color: rgba(</xsl:text><xsl:value-of select="$v_color"/><xsl:text>);</xsl:text>
+                                <xsl:text>background-color: rgba(</xsl:text><xsl:value-of select="$v_color-rgba"/><xsl:text>);</xsl:text>
                                 </xsl:attribute>
                             </xsl:when>
                             <xsl:when test="$v_type='region'">
                                 <xsl:attribute name="style">
                                     <!-- border radius and stroke width are always the same -->
                                 <xsl:text>display:block; border-style:solid; border-radius: 3px; border-width: 4px; </xsl:text>
-                                <xsl:text>border-color: rgba(</xsl:text><xsl:value-of select="$v_color"/><xsl:text>);</xsl:text>
+                                <xsl:text>border-color: rgba(</xsl:text><xsl:value-of select="$v_color-rgba"/><xsl:text>);</xsl:text>
                                 </xsl:attribute>
                             </xsl:when>
                         </xsl:choose>
+                    <xsl:attribute name="color" select="$v_color"/>
                     
                     <title><xsl:value-of select="value[@column='2']"/></title>
                     <comment><xsl:value-of select="value[@column='5']"/></comment>
