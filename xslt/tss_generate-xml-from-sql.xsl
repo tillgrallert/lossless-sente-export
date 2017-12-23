@@ -140,6 +140,17 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
+                <!-- Sente uses different RGBA values for macOS and iOS. We can therefore establish the OS based on the RGBA value. -->
+                <xsl:variable name="v_input-os">
+                    <xsl:choose>
+                        <xsl:when test="$v_color-rgba = ('0.9960784,0.8745098,0,0.2','1,0.3137255,0.3137255,0.2','0.3921569,0.627451,0.7843137,0.2','0.4392157,0.6431373,0.5372549,0.2','0.5764706,0.3137255,0.6196079,0.2','0.9647059,0.572549,0.2509804,0.2')">
+                            <xsl:text>macOS</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text>iOS</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose> 
+                </xsl:variable>
                 <xsl:variable name="v_type">
                     <xsl:analyze-string select="value[@column='9']" regex="Original Selection Mode&quot;:&quot;(.+?)&quot;">
                         <xsl:matching-substring>
@@ -151,7 +162,9 @@
                     xml:id="{concat('uuid_',value[@column='0'])}"  
                     correspReference="{concat('#uuid_',$p_reference-uuid)}" 
                     correspAttachment="{concat('#uuid_',value[@column='7'])}"
-                    editor="{concat('Sente User ',value[@column='14'])}">
+                    editor="{concat('Sente User ',value[@column='14'])}"
+                    color="{$v_color}"
+                    inputOs="{$v_input-os}">
                     <xsl:attribute name="when-iso">
                         <xsl:value-of select="oap:iso-timestamp(value[@column='11'])"/>
                         <!--<xsl:call-template name="t_iso-timestamp">
@@ -174,8 +187,6 @@
                                 </xsl:attribute>
                             </xsl:when>
                         </xsl:choose>
-                    <xsl:attribute name="color" select="$v_color"/>
-                    
                     <title><xsl:value-of select="value[@column='2']"/></title>
                     <comment><xsl:value-of select="value[@column='5']"/></comment>
                     <quotation><xsl:value-of select="value[@column='4']"/></quotation>
