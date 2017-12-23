@@ -18,8 +18,9 @@
     <!-- output is currently a single Sente XML file for all references. Using the modular templates in this stylesheet, this can easily be changed to generate one file for every reference -->
     
     
-    
+    <xsl:param name="p_limited-to-saxon-he" select="true()"/>
     <xsl:variable name="v_input-folder" select="replace(base-uri(),'(.+/).+?\.xml','$1')"/>
+   
     
     <xsl:template match="/">
         <xsl:result-document href="_output/compiled.TSS.xml">
@@ -240,11 +241,22 @@
                                         <xsl:with-param name="base64String" select="$v_path-as-base64"/>
                                     </xsl:call-template>
                                 </xsl:variable>-->
-                                <xsl:attribute name="type" select="'base64'"/>
-<!--                                <xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
                                 <!-- problem with bin: and saxon: extensions: they do not work in the free Saxon HE -->
-                                <!--<xsl:value-of select="bin:decode-string(xs:base64Binary($v_attachment-location/descendant-or-self::row/value[@column='4']))"/>-->
-                                <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
+                                <xsl:choose>
+                                    <xsl:when test="$p_limited-to-saxon-he = true()">
+                                        <xsl:attribute name="type" select="'base64'"/>
+                                        <!--<xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
+                                        <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:attribute name="type" select="'xml'"/>
+                                        <xsl:variable name="v_plist-as-string">
+                                            <xsl:value-of select="bin:decode-string(xs:base64Binary($v_attachment-location/descendant-or-self::row/value[@column='4']))"/>
+                                        </xsl:variable>
+                                        <xsl:value-of select="substring-after(substring-before($v_plist-as-string,'&lt;/string'),'string&gt;')"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
