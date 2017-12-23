@@ -218,9 +218,6 @@
                 editor="{concat('Sente User ',value[@column='13'])}">
                     <xsl:attribute name="when-iso">
                         <xsl:value-of select="oap:iso-timestamp(value[@column='8'])"/>
-                        <!--<xsl:call-template name="t_iso-timestamp">
-                            <xsl:with-param name="p_input" select="value[@column='8']"/>
-                        </xsl:call-template>-->
                     </xsl:attribute>
                     <name><xsl:value-of select="value[@column='2']"/></name>
                     <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
