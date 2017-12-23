@@ -167,9 +167,6 @@
                     inputOs="{$v_input-os}">
                     <xsl:attribute name="when-iso">
                         <xsl:value-of select="oap:iso-timestamp(value[@column='11'])"/>
-                        <!--<xsl:call-template name="t_iso-timestamp">
-                            <xsl:with-param name="p_input" select="value[@column='11']"/>
-                        </xsl:call-template>-->
                     </xsl:attribute>
                     <!-- some css based on the JSON data stream -->
                         <xsl:choose>
@@ -191,9 +188,12 @@
                     <comment><xsl:value-of select="value[@column='5']"/></comment>
                     <quotation><xsl:value-of select="value[@column='4']"/></quotation>
                     <pages><xsl:value-of select="value[@column='3']"/></pages>
+                    <!-- custom elements mirroring the column name in the SQLite source -->
                     <!-- column 8: position in attached file -->
+                    <locationInAttachedFile>
+                        <xsl:value-of select=" value[@column='8']"/>
+                    </locationInAttachedFile>
                     <!-- column 9: annotation details; JSON including geometry, position on page, colour, strike etc. -->
-                    <!-- custom element mirroring the column name in the SQLite source -->
                     <annotationDetails>
                         <xsl:value-of select=" value[@column='9']"/>
                     </annotationDetails>
