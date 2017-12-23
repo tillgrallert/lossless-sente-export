@@ -4731,5 +4731,124 @@
             <value column="13">Y</value>
             <value column="14">Sebastian</value>
         </row>
+        <row>
+            <value column="0">279014BE-AA6F-4FB2-A06F-36584F966CC7</value>
+            <value column="1">4ECED8BE-C214-4063-B84D-2BC3A37B567D</value>
+            <value column="2">Note from Web Page (2017-12-23 10:36:17 +0100)</value>
+            <value column="3"></value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7"></value>
+            <value column="8"></value>
+            <value column="9"></value>
+            <value column="10">Y</value>
+            <value column="11">2017-12-23 09:36:25 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
+        <row>
+            <value column="0">4A95E39D-7C98-404A-A6D5-D8FA63A79E6C</value>
+            <value column="1">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
+            <value column="2">yellow note</value>
+            <value column="3">1</value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
+            <value column="8">{&quot;Encoding&quot;:&quot;V1&quot;,&quot;X&quot;:107.7096,&quot;Page&quot;:1,&quot;Y&quot;:617.4083}</value>
+            <value column="9"><![CDATA[{"Encoding":"V1","Selection Original Ending Point":"{176.192032,578.936584}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{115.709635,578.936584},{60.482397,38.471729}}","Rectangles":[{"Stroke RGBA":[0.9960784,0.8745098,0,0.2],"Bounds":"{{115.709635,578.936584},{60.482397,38.471729}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{115.709635,617.408313}"}]]></value>
+            <value column="10">N</value>
+            <value column="11">2017-12-23 09:37:19 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
+        <row>
+            <value column="0">AAE0974A-3200-4447-9C7F-67689370BFC6</value>
+            <value column="1">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
+            <value column="2">red note</value>
+            <value column="3">1</value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
+            <value column="8">{&quot;Encoding&quot;:&quot;V1&quot;,&quot;X&quot;:108.8724,&quot;Page&quot;:1,&quot;Y&quot;:569.3504}</value>
+            <value column="9"><![CDATA[{"Encoding":"V1","Selection Original Ending Point":"{174.455536,511.967773}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{116.872367,511.967773},{57.583169,57.382630}}","Rectangles":[{"Stroke RGBA":[1,0.3137255,0.3137255,0.2],"Bounds":"{{116.872367,511.967773},{57.583169,57.382630}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{116.872367,569.350404}"}]]></value>
+            <value column="10">N</value>
+            <value column="11">2017-12-23 09:37:30 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
+        <row>
+            <value column="0">9DC5CCD6-B4BA-4FE1-ADBA-13DDC5C435D0</value>
+            <value column="1">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
+            <value column="2">blue note</value>
+            <value column="3">1</value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
+            <value column="8">{&quot;Encoding&quot;:&quot;V1&quot;,&quot;X&quot;:192.8023,&quot;Page&quot;:1,&quot;Y&quot;:608.4974}</value>
+            <value column="9"><![CDATA[{"Encoding":"V1","Selection Original Ending Point":"{243.275070,564.821350}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{200.802345,564.821350},{42.472725,43.676067}}","Rectangles":[{"Stroke RGBA":[0.3921569,0.627451,0.7843137,0.2],"Bounds":"{{200.802345,564.821350},{42.472725,43.676067}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{200.802345,608.497417}"}]]></value>
+            <value column="10">N</value>
+            <value column="11">2017-12-23 09:37:40 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
+        <row>
+            <value column="0">DEEEB975-94B3-4819-8FB7-608C11887638</value>
+            <value column="1">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
+            <value column="2">green note</value>
+            <value column="3">1</value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
+            <value column="8">{&quot;Encoding&quot;:&quot;V1&quot;,&quot;X&quot;:203.4523,&quot;Page&quot;:1,&quot;Y&quot;:550.371}</value>
+            <value column="9"><![CDATA[{"Encoding":"V1","Selection Original Ending Point":"{262.003204,499.492523}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{211.452262,499.492523},{50.550942,50.878434}}","Rectangles":[{"Stroke RGBA":[0.4392157,0.6431373,0.5372549,0.2],"Bounds":"{{211.452262,499.492523},{50.550942,50.878434}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{211.452262,550.370957}"}]]></value>
+            <value column="10">N</value>
+            <value column="11">2017-12-23 09:37:50 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
+        <row>
+            <value column="0">1ADA19BC-04E2-495B-A596-9D5FB32131A8</value>
+            <value column="1">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
+            <value column="2">purple note</value>
+            <value column="3">1</value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
+            <value column="8">{&quot;Encoding&quot;:&quot;V1&quot;,&quot;X&quot;:328.6907,&quot;Page&quot;:1,&quot;Y&quot;:610.833}</value>
+            <value column="9"><![CDATA[{"Encoding":"V1","Selection Original Ending Point":"{320.690704,567.009705}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{271.363440,567.009705},{49.327264,43.823332}}","Rectangles":[{"Stroke RGBA":[0.5764706,0.3137255,0.6196079,0.2],"Bounds":"{{271.363440,567.009705},{49.327264,43.823332}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{271.363440,610.833037}"}]]></value>
+            <value column="10">N</value>
+            <value column="11">2017-12-23 09:37:59 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
+        <row>
+            <value column="0">5EDDD446-FCB4-4D57-A90A-AE1C4AB5623E</value>
+            <value column="1">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
+            <value column="2">orange note</value>
+            <value column="3">1</value>
+            <value column="4"></value>
+            <value column="5"></value>
+            <value column="6">Full Note</value>
+            <value column="7">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
+            <value column="8">{&quot;Encoding&quot;:&quot;V1&quot;,&quot;X&quot;:345.7382,&quot;Page&quot;:1,&quot;Y&quot;:554.2501}</value>
+            <value column="9"><![CDATA[{"Encoding":"V1","Selection Original Ending Point":"{337.738190,489.913940}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{286.583048,489.913940},{51.155142,64.336176}}","Rectangles":[{"Stroke RGBA":[0.9647059,0.572549,0.2509804,0.2],"Bounds":"{{286.583048,489.913940},{51.155142,64.336176}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{286.583048,554.250116}"}]]></value>
+            <value column="10">N</value>
+            <value column="11">2017-12-23 09:38:08 +0000</value>
+            <value column="12"></value>
+            <value column="13">Y</value>
+            <value column="14">Sebastian</value>
+        </row>
     </rows>
 </table>
