@@ -24,6 +24,8 @@ Sente is built on the open SQLite database and thus the necessary information ca
 
 After some poking around, I settled on using the free, multi-platform [SQLiteStudio](http://sqlitestudio.pl) to export all tables as generic XML. This export is then be transformed into standard Sente XML with a few custom additions using the XSLT stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) in this repository.
 
+- to do:
+    + write/adopt the XML schema for Sente XML in order for processing tools to know what to expect when presented with our XML output.
 - currently implemented templates
     + main template for all `<tss:reference>`s, including all custom fields
     + generating `<tss:notes>`
