@@ -168,16 +168,14 @@
                         </xsl:matching-substring>
                     </xsl:analyze-string>
                 </xsl:variable>
-                <tss:note 
-                    xml:id="{concat('uuid_',value[@column='0'])}"  
-                    correspReference="{concat('#uuid_',$p_reference-uuid)}" 
-                    correspAttachment="{concat('#uuid_',value[@column='7'])}"
-                    editor="{concat('Sente User ',value[@column='14'])}"
-                    color="{$v_color}"
-                    inputOs="{$v_input-os}">
-                    <xsl:attribute name="when-iso">
-                        <xsl:value-of select="oap:iso-timestamp(value[@column='11'])"/>
-                    </xsl:attribute>
+                <tss:note>
+                    <xsl:attribute name="xml:id" select="concat('uuid_',value[@column='0'])"/>
+                    <xsl:attribute name="correspReference" select="concat('#uuid_',$p_reference-uuid)"/>
+                    <xsl:attribute name="correspAttachment" select="concat('#uuid_',value[@column='7'])"/>
+                    <xsl:attribute name="editor" select="concat('Sente User ',value[@column='14'])"/>
+                    <xsl:attribute name="color" select="$v_color"/>
+                    <xsl:attribute name="inputOs" select="$v_input-os"/>
+                    <xsl:attribute name="when-iso" select="oap:iso-timestamp(value[@column='11'])"/>
                     <!-- some css based on the JSON data stream -->
                         <xsl:choose>
                             <xsl:when test="$v_type='text'">
@@ -224,19 +222,16 @@
                     one might have the same UUID twice. One for a file on the local machine, one for files on the server. The values for @column='3' are:
                         1. "Replication Server"
                         2. "Base Directory-Relative, Optionally Alias-Backed"
-                        
                     The solution is to actively select the local copy-->
                 <xsl:variable name="v_attachment-location-local" select="document(concat($v_input-folder,'AttachmentLocation.xml'))/table/rows/row[value[@column='1'] = $v_attachment-uuid][value[@column='3'] = 'Base Directory-Relative, Optionally Alias-Backed']"/>
                 <xsl:variable name="v_attachment-location-server" select="document(concat($v_input-folder,'AttachmentLocation.xml'))/table/rows/row[value[@column='1'] = $v_attachment-uuid][value[@column='3'] = 'Replication Server']"/>
                 <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
-                <tss:attachmentReference
-                xml:id="{concat('uuid_',$v_attachment-uuid)}"
-                correspReference="{concat('#uuid_',$p_reference-uuid)}"
-                type="{value[@column='4']}"
-                editor="{concat('Sente User ',value[@column='13'])}">
-                    <xsl:attribute name="when-iso">
-                        <xsl:value-of select="oap:iso-timestamp(value[@column='8'])"/>
-                    </xsl:attribute>
+                <tss:attachmentReference>
+                    <xsl:attribute name="xml:id" select="concat('uuid_',$v_attachment-uuid)"/>
+                    <xsl:attribute name="correspReference" select="concat('#uuid_',$p_reference-uuid)"/>
+                    <xsl:attribute name="type" select="value[@column='4']"/>
+                    <xsl:attribute name="editor" select="concat('Sente User ',value[@column='13'])"/>
+                    <xsl:attribute name="when-iso" select="oap:iso-timestamp(value[@column='8'])"/>
                     <name><xsl:value-of select="value[@column='2']"/></name>
                     <URL>
                         <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
@@ -272,7 +267,6 @@
                                         <xsl:value-of select="concat($v_base-url,'Attachments/',$v_relative-file-path)"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                                
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="$v_attachment-location-local/descendant-or-self::row/value[@column='4']"/>
@@ -306,9 +300,9 @@
         <xsl:param name="p_input" select="document(concat($v_input-folder,'Keyword.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
         <tss:keywords>
             <xsl:for-each select="$p_input/descendant-or-self::row">
-                <tss:keyword
-                    assigner="{value[@column='2']}"
-                    correspReference="{concat('#uuid_',$p_reference-uuid)}">
+                <tss:keyword>
+                    <xsl:attribute name="assigner" select="value[@column='2']"/>
+                    <xsl:attribute name="correspReference" select="concat('#uuid_',$p_reference-uuid)"/>
                    <xsl:value-of select="value[@column='1']"/>
                 </tss:keyword>
             </xsl:for-each>
