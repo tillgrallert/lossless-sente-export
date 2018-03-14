@@ -52,10 +52,14 @@
             <tss:dates>
                 <!-- publication dates are stored in three different rows to account for technically false dates -->
                 <tss:date type="Publication" year="{value[@column='15']}" month="{value[@column='16']}" day="{value[@column='17']}"/>
-                <!-- column 18 -->
-                <tss:date type="Entry" year="{year-from-date(oap:iso-date(value[@column='18']))}" month="{month-from-date(oap:iso-date(value[@column='18']))}" day="{day-from-date(oap:iso-date(value[@column='18']))}"/>
+                <!-- column 18: date of entry / date, a reference was added to Sente. Very early references do not carry a value  -->
+                <xsl:if test="value[@column='18']!=''">
+                    <tss:date type="Entry" year="{year-from-date(oap:iso-date(value[@column='18']))}" month="{month-from-date(oap:iso-date(value[@column='18']))}" day="{day-from-date(oap:iso-date(value[@column='18']))}"/>
+                </xsl:if>
                 <!-- column 19 -->
-                <tss:date type="Modification" year="{year-from-date(oap:iso-date(value[@column='19']))}" month="{month-from-date(oap:iso-date(value[@column='19']))}" day="{day-from-date(oap:iso-date(value[@column='19']))}"/>
+                <xsl:if test="value[@column='19']!=''">
+                    <tss:date type="Modification" year="{year-from-date(oap:iso-date(value[@column='19']))}" month="{month-from-date(oap:iso-date(value[@column='19']))}" day="{day-from-date(oap:iso-date(value[@column='19']))}"/>
+                </xsl:if>
                 <tss:date type="Retrieval" year="{document(concat($v_input-folder,'SparseAttribute.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid][value[@column='1']='Retrieval year']/value[@column='2']}" month="{document(concat($v_input-folder,'SparseAttribute.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid][value[@column='1']='Retrieval month']/value[@column='2']}" day="{document(concat($v_input-folder,'SparseAttribute.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid][value[@column='1']='Retrieval day']/value[@column='2']}"/>
             </tss:dates>
             <tss:characteristics>
