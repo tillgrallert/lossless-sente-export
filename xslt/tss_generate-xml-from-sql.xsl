@@ -220,7 +220,14 @@
             <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 6: IsDeleted. -->
             <xsl:for-each select="$p_input/descendant-or-self::row[value[@column='6']='N']">
                 <xsl:variable name="v_attachment-uuid" select="value[@column='1']"/>
-                <xsl:variable name="v_attachment-location" select="document(concat($v_input-folder,'AttachmentLocation.xml'))/table/rows/row[value[@column='1']=$v_attachment-uuid]"/>
+                <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! If a library was synced to Sente's replication servers, 
+                    one might have the same UUID twice. One for a file on the local machine, one for files on the server. The values for @column='3' are:
+                        1. "Replication Server"
+                        2. "Base Directory-Relative, Optionally Alias-Backed"
+                        
+                    The solution is to actively select the local copy-->
+                <xsl:variable name="v_attachment-location-local" select="document(concat($v_input-folder,'AttachmentLocation.xml'))/table/rows/row[value[@column='1'] = $v_attachment-uuid][value[@column='3'] = 'Base Directory-Relative, Optionally Alias-Backed']"/>
+                <xsl:variable name="v_attachment-location-server" select="document(concat($v_input-folder,'AttachmentLocation.xml'))/table/rows/row[value[@column='1'] = $v_attachment-uuid][value[@column='3'] = 'Replication Server']"/>
                 <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
                 <tss:attachmentReference
                 xml:id="{concat('uuid_',$v_attachment-uuid)}"
@@ -234,7 +241,7 @@
                     <URL>
                         <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
                         <xsl:choose>
-                            <xsl:when test="starts-with($v_attachment-location/descendant-or-self::row/value[@column='4'],'PD94bWwg')">
+                            <xsl:when test="starts-with($v_attachment-location-local/descendant-or-self::row/value[@column='4'],'PD94bWwg')">
                                 <!-- translate the relevant bit in base64 to string using xslt 1.
                                 Problem: this only works with ASCII and we have Unicode data -->
                                 <!--<xsl:variable name="v_path-as-base64">
@@ -250,11 +257,11 @@
                                     <xsl:when test="$p_limited-to-saxon-he = true()">
                                         <xsl:attribute name="type" select="'base64'"/>
                                         <!--<xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
-                                        <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
+                                        <xsl:value-of select="$v_attachment-location-local/descendant-or-self::row/value[@column='4']"/>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:variable name="v_plist-as-string">
-                                            <xsl:value-of select="bin:decode-string(xs:base64Binary($v_attachment-location/descendant-or-self::row/value[@column='4']))"/>
+                                            <xsl:value-of select="bin:decode-string(xs:base64Binary($v_attachment-location-local/descendant-or-self::row/value[@column='4']))"/>
                                         </xsl:variable>
                                         <xsl:variable name="v_relative-file-path">
                                             <xsl:value-of select="substring-after(substring-before($v_plist-as-string,'&lt;/string'),'string&gt;')"/>
@@ -268,7 +275,7 @@
                                 
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="$v_attachment-location/descendant-or-self::row/value[@column='4']"/>
+                                <xsl:value-of select="$v_attachment-location-local/descendant-or-self::row/value[@column='4']"/>
                             </xsl:otherwise>
                     </xsl:choose>
                     </URL>
