@@ -11,8 +11,14 @@
     <!-- input is currently a list of reference UUIDs from Reference.xml. Since the stylesheet explicitly pulls in all relevant source files, this can easily be changed to any other source of reference UUIDs -->
     <!-- output is currently a single Sente XML file for all references. Using the modular templates in this stylesheet, this can easily be changed to generate one file for every reference -->
     <xsl:param name="p_limited-to-saxon-he" select="true()"/>
+    <xsl:param name="p_debug" select="true()"/>
+    
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
+    <!-- static variables for all references -->
     <xsl:variable name="v_base-url" select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
+    <!-- bibliographic information from Reference.xml -->
+    <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
+    <xsl:variable name="v_column-names" select="document(concat($v_input-folder, 'Reference.xml'))/table/columns"/>
     <xsl:template match="/">
         <xsl:result-document href="_output/compiled.TSS.xml">
             <!-- group by PrimaryReferenceUUID in  -->
@@ -77,14 +83,14 @@
                         <xsl:value-of select="$p_reference-uuid"/>
                     </tss:characteristic>
                     <!-- add all relevant bibliographic fields -->
-                    <!-- we need columns 4-8, 10-11,14, 20 -->
-                    <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
-                    <xsl:variable name="v_column-names" select="ancestor::table/columns/column"/>
+                    <!-- we need columns 4-8, 10-11,14, 20. Since this information does not depend on context, we can put them outside of individual templates -->
+                    <!--<xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
+                    <xsl:variable name="v_column-names" select="ancestor::table/columns"/>-->
                     <xsl:for-each select="value">
                         <xsl:if test="tokenize($v_columns, ',') = @column">
                             <xsl:variable name="v_column-no" select="number(@column)"/>
                             <tss:characteristic
-                                name="{$v_column-names/self::column[$v_column-no +1]/name}">
+                                name="{$v_column-names/self::columns/column[$v_column-no +1]/name}">
                                 <xsl:value-of select="."/>
                             </tss:characteristic>
                         </xsl:if>
@@ -250,13 +256,15 @@
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
                 <xsl:variable name="v_attachment-location"
                     select="document(concat($v_input-folder, 'AttachmentLocation.xml'))/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
-                <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! If a library was synced to Sente's replication servers, 
-                    one might have the same UUID twice. One for a file on the local machine, one for files on the server. The values for @column='3' are:
-                        1. "Replication Server"
-                        2. "Base Directory-Relative, Optionally Alias-Backed"
-                    The solution is to actively select the local copy-->
+                <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! Depending on how many version of a file, Sente keeps track of, 
+                    the number is potentially unlimited. I have seen at least five entires for the same attachment UUID. One could generate a `<tss:attachmentReference>` for each
+                    The values for @column='3' are:
+                        1. "Replication Server": synced to the Sente replication servers
+                        2. "Base Directory-Relative, Optionally Alias-Backed": local file, managed by Sente and kept inside the library bundle
+                        3. "File URL": local file, not managed by Sente. In this case the URL is provided as plain text
+                    A TEMPORARY solution is to actively select the first local copy-->
                 <xsl:variable name="v_attachment-location-local"
-                    select="$v_attachment-location/self::row[value[@column = '3'] = 'Base Directory-Relative, Optionally Alias-Backed']"/>
+                    select="$v_attachment-location/self::row[value[@column = '3'] = 'Base Directory-Relative, Optionally Alias-Backed'][1]"/>
                 <!-- not currently used -->
                 <!--                <xsl:variable name="v_attachment-location-server" select="$v_attachment-location/self::row[value[@column = '3'] = 'Replication Server']"/>-->
                 <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
