@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xs" version="3.0"
+<xsl:stylesheet exclude-result-prefixes="xs" version="2.0"
     xmlns:b64="https://github.com/ilyakharlamov/xslt_base64" xmlns:bin="http://expath.org/ns/binary"
     xmlns:html="http://www.w3.org/1999/xhtml" xmlns:oap="https://openarabicpe.github.io/ns"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
@@ -20,6 +20,7 @@
                 <tss:library>
                     <tss:references>
                         <xsl:for-each-group group-by="value[@column = '0']" select="table/rows/row">
+                            <xsl:sort select="current-group()/value[@column='19']" order="descending"/>
                             <xsl:call-template name="t_generate-references">
                                 <xsl:with-param name="p_reference-uuid"
                                     select="current-grouping-key()"/>
@@ -34,8 +35,6 @@
         <xsl:param name="p_reference-uuid"/>
         <xsl:for-each
             select="document(concat($v_input-folder, 'Reference.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
-            <!-- here should come some sort instructions to process references with the latest changes first -->
-            <xsl:sort order="descending" select="value[@column = '19']"/>
             <!-- set a number of general variables -->
             <xsl:variable name="v_spares-attributes"
                 select="document(concat($v_input-folder, 'SparseAttribute.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>
