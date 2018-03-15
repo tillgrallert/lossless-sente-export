@@ -43,6 +43,8 @@
         <xsl:param name="p_reference-uuid"/>
         <xsl:param name="p_input" select="document(concat($v_input-folder,'Reference.xml'))/table/rows/row[value[@column='0']=$p_reference-uuid]"/>
         <xsl:for-each select="$p_input/descendant-or-self::row">
+            <!-- here should come some sort instructions to process references with the latest changes first -->
+            <xsl:sort select="value[@column='19']" order="descending"/>
         <tss:reference xml:id="{concat('uuid_',$p_reference-uuid)}">
             <tss:publicationType name="{value[@column='3']}"/>
             <!-- authors -->
