@@ -12,11 +12,7 @@
     <!-- output is currently a single Sente XML file for all references. Using the modular templates in this stylesheet, this can easily be changed to generate one file for every reference -->
     <xsl:param name="p_limited-to-saxon-he" select="true()"/>
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
-    <xsl:variable name="v_base-url">
-        <xsl:value-of
-            select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"
-        />
-    </xsl:variable>
+    <xsl:variable name="v_base-url" select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
     <xsl:template match="/">
         <xsl:result-document href="_output/compiled.TSS.xml">
             <!-- group by PrimaryReferenceUUID in  -->
@@ -55,17 +51,20 @@
                         type="Publication" year="{value[@column='15']}"/>
                     <!-- column 18: date of entry / date, a reference was added to Sente. Very early references do not carry a value  -->
                     <xsl:if test="value[@column = '18'] != ''">
-                        <tss:date day="{day-from-date(oap:iso-date(value[@column='18']))}"
-                            month="{month-from-date(oap:iso-date(value[@column='18']))}"
-                            type="Entry" year="{year-from-date(oap:iso-date(value[@column='18']))}"
+                        <xsl:variable name="v_date-entry" select="oap:iso-date(value[@column='18'])"/>
+                        <tss:date day="{day-from-date($v_date-entry)}"
+                            month="{month-from-date($v_date-entry)}"
+                            type="Entry" 
+                            year="{year-from-date($v_date-entry)}"
                         />
                     </xsl:if>
-                    <!-- column 19 -->
+                    <!-- column 19: date of last modification -->
                     <xsl:if test="value[@column = '19'] != ''">
-                        <tss:date day="{day-from-date(oap:iso-date(value[@column='19']))}"
-                            month="{month-from-date(oap:iso-date(value[@column='19']))}"
+                        <xsl:variable name="v_date-modified" select="oap:iso-date(value[@column='19'])"/>
+                        <tss:date day="{day-from-date($v_date-modified)}"
+                            month="{month-from-date($v_date-modified)}"
                             type="Modification"
-                            year="{year-from-date(oap:iso-date(value[@column='19']))}"/>
+                            year="{year-from-date($v_date-modified)}"/>
                     </xsl:if>
                     <tss:date
                         day="{$v_spares-attributes/self::row[value[@column='1']='Retrieval day']/value[@column='2']}"
@@ -298,16 +297,12 @@
                                         />
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:variable name="v_plist-as-string">
-                                            <xsl:value-of
+                                        <xsl:variable name="v_plist-as-string"
                                                 select="bin:decode-string(xs:base64Binary($v_attachment-location-local/self::row/value[@column = '4']))"
                                             />
-                                        </xsl:variable>
-                                        <xsl:variable name="v_relative-file-path">
-                                            <xsl:value-of
+                                        <xsl:variable name="v_relative-file-path"
                                                 select="substring-after(substring-before($v_plist-as-string, '&lt;/string'), 'string&gt;')"
                                             />
-                                        </xsl:variable>
                                         <xsl:value-of
                                             select="concat($v_base-url, 'Attachments/', $v_relative-file-path)"
                                         />
