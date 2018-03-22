@@ -12,13 +12,14 @@
     <!-- output is currently a single Sente XML file for all references. Using the modular templates in this stylesheet, this can easily be changed to generate one file for every reference -->
     <xsl:param name="p_limited-to-saxon-he" select="true()"/>
     <xsl:param name="p_debug" select="true()"/>
-    
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
     <!-- static variables for all references -->
-    <xsl:variable name="v_base-url" select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
+    <xsl:variable name="v_base-url"
+        select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
     <!-- bibliographic information from Reference.xml -->
     <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
-    <xsl:variable name="v_column-names" select="document(concat($v_input-folder, 'Reference.xml'))/table/columns"/>
+    <xsl:variable name="v_column-names"
+        select="document(concat($v_input-folder, 'Reference.xml'))/table/columns"/>
     <xsl:template match="/">
         <xsl:result-document href="_output/compiled.TSS.xml">
             <!-- group by PrimaryReferenceUUID in  -->
@@ -26,7 +27,8 @@
                 <tss:library>
                     <tss:references>
                         <xsl:for-each-group group-by="value[@column = '0']" select="table/rows/row">
-                            <xsl:sort select="current-group()/value[@column='19']" order="descending"/>
+                            <xsl:sort order="descending"
+                                select="current-group()/value[@column = '19']"/>
                             <xsl:call-template name="t_generate-references">
                                 <xsl:with-param name="p_reference-uuid"
                                     select="current-grouping-key()"/>
@@ -56,19 +58,18 @@
                         type="Publication" year="{value[@column='15']}"/>
                     <!-- column 18: date of entry / date, a reference was added to Sente. Very early references do not carry a value  -->
                     <xsl:if test="value[@column = '18'] != ''">
-                        <xsl:variable name="v_date-entry" select="oap:iso-date(value[@column='18'])"/>
+                        <xsl:variable name="v_date-entry"
+                            select="oap:iso-date(value[@column = '18'])"/>
                         <tss:date day="{day-from-date($v_date-entry)}"
-                            month="{month-from-date($v_date-entry)}"
-                            type="Entry" 
-                            year="{year-from-date($v_date-entry)}"
-                        />
+                            month="{month-from-date($v_date-entry)}" type="Entry"
+                            year="{year-from-date($v_date-entry)}"/>
                     </xsl:if>
                     <!-- column 19: date of last modification -->
                     <xsl:if test="value[@column = '19'] != ''">
-                        <xsl:variable name="v_date-modified" select="oap:iso-date(value[@column='19'])"/>
+                        <xsl:variable name="v_date-modified"
+                            select="oap:iso-date(value[@column = '19'])"/>
                         <tss:date day="{day-from-date($v_date-modified)}"
-                            month="{month-from-date($v_date-modified)}"
-                            type="Modification"
+                            month="{month-from-date($v_date-modified)}" type="Modification"
                             year="{year-from-date($v_date-modified)}"/>
                     </xsl:if>
                     <tss:date
@@ -253,9 +254,13 @@
             <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 6: IsDeleted. -->
             <xsl:for-each
                 select="document(concat($v_input-folder, 'Attachment.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = '6'] = 'N']">
+                <xsl:variable name="v_type" select="value[@column = '4']"/>
+                <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = '13'])"/>
+                <xsl:variable name="v_date-edited" select="oap:iso-timestamp(value[@column = '8'])"/>
+                <xsl:variable name="v_name" select="value[@column = '2']"/>
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
                 <xsl:variable name="v_attachment-location"
-                    select="document(concat($v_input-folder, 'AttachmentLocation.xml'))/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
+                        select="document(concat($v_input-folder, 'AttachmentLocation.xml'))/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
                 <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! Depending on how many version of a file, Sente keeps track of, 
                     the number is potentially unlimited. I have seen at least five entires for the same attachment UUID. One could generate a `<tss:attachmentReference>` for each
                     The values for @column='3' are:
@@ -263,77 +268,74 @@
                         2. "Base Directory-Relative, Optionally Alias-Backed": local file, managed by Sente and kept inside the library bundle
                         3. "File URL": local file, not managed by Sente. In this case the URL is provided as plain text
                     A TEMPORARY solution is to actively select the first local copy-->
-                <xsl:variable name="v_attachment-location-local"
-                    select="$v_attachment-location/self::row[value[@column = '3'] = 'Base Directory-Relative, Optionally Alias-Backed'][1]"/>
-                <!-- not currently used -->
-                <!--                <xsl:variable name="v_attachment-location-server" select="$v_attachment-location/self::row[value[@column = '3'] = 'Replication Server']"/>-->
-                <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
-                <tss:attachmentReference>
-                    <xsl:attribute name="xml:id" select="concat('uuid_', $v_attachment-uuid)"/>
-                    <xsl:attribute name="correspReference"
-                        select="concat('#uuid_', $p_reference-uuid)"/>
-                    <xsl:attribute name="type" select="value[@column = '4']"/>
-                    <xsl:attribute name="editor"
-                        select="concat('Sente User ', value[@column = '13'])"/>
-                    <xsl:attribute name="when-iso" select="oap:iso-timestamp(value[@column = '8'])"/>
-                    <name>
-                        <xsl:value-of select="value[@column = '2']"/>
-                    </name>
-                    <URL>
-                        <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
-                        <xsl:choose>
-                            <xsl:when
-                                test="starts-with($v_attachment-location-local/self::row/value[@column = '4'], 'PD94bWwg')">
-                                <!-- translate the relevant bit in base64 to string using xslt 1.
-                                Problem: this only works with ASCII and we have Unicode data -->
-                                <!--<xsl:variable name="v_path-as-base64">
-                                    <xsl:value-of select="substring-after($v_attachment-location/descendant-or-self::row/value[@column='4'],'V5PgoJPHN0cmlu')"/>
-                                </xsl:variable>
-                                <xsl:variable name="v_path-as-string">
-                                    <xsl:call-template name="b64:decode">
-                                        <xsl:with-param name="base64String" select="$v_path-as-base64"/>
-                                    </xsl:call-template>
-                                </xsl:variable>-->
-                                <!-- problem with bin: and saxon: extensions: they do not work in the free Saxon HE -->
-                                <xsl:choose>
-                                    <xsl:when test="$p_limited-to-saxon-he = true()">
-                                        <xsl:attribute name="type" select="'base64'"/>
-                                        <!--<xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
-                                        <xsl:value-of
-                                            select="$v_attachment-location-local/self::row/value[@column = '4']"
-                                        />
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:variable name="v_plist-as-string"
-                                                select="bin:decode-string(xs:base64Binary($v_attachment-location-local/self::row/value[@column = '4']))"
+                <!-- column 0: reference UUID; column 1: attachment UUID; column 2: location UUID. -->
+                <!-- only the latter is unique in this file; thus there should be one <tss:attachmentReference> per unique combination of reference UUID and attachment UUID. In case of more than one location UUID, they will have more than one <URL> child -->
+
+                    <!-- not currently used -->
+                <!--                    <xsl:variable name="v_attachment-location-local" select="$v_attachment-location/self::row[value[@column = '3'] = 'Base Directory-Relative, Optionally Alias-Backed'][1]"/>-->
+                    <!--                <xsl:variable name="v_attachment-location-server" select="$v_attachment-location/self::row[value[@column = '3'] = 'Replication Server']"/>-->
+                    <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
+                    <tss:attachmentReference>
+                        <xsl:attribute name="xml:id" select="concat('uuid_', $v_attachment-uuid)"/>
+                        <xsl:attribute name="correspReference"
+                            select="concat('#uuid_', $p_reference-uuid)"/>
+                        <xsl:attribute name="type" select="$v_type"/>
+                        <xsl:attribute name="editor"
+                            select="$v_editor"/>
+                        <xsl:attribute name="when-iso"
+                            select="$v_date-edited"/>
+                        <name>
+                            <xsl:value-of select="$v_name"/>
+                        </name>
+                        <!-- test if there is more than one location UUID for this attachment -->
+                        <xsl:for-each-group group-by="value[@column = '2']" select="$v_attachment-location/self::row">
+                        <URL>
+                            <xsl:attribute name="xml:id" select="concat('uuid_', current-grouping-key())"/>
+                            <!-- add custom attribute for location type -->
+                            <xsl:attribute name="storageMethod" select="value[@column='3']"/>
+                            <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
+                            <xsl:choose>
+                                <xsl:when
+                                    test="starts-with(value[@column = '4'], 'PD94bWwg')">
+                                    <!-- problem with bin: and saxon: extensions: they do not work in the free Saxon HE -->
+                                    <xsl:choose>
+                                        <xsl:when test="$p_limited-to-saxon-he = true()">
+                                            <xsl:attribute name="type" select="'base64'"/>
+                                            <!--<xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
+                                            <xsl:value-of
+                                                select="value[@column = '4']"
                                             />
-                                        <xsl:variable name="v_relative-file-path"
-                                                select="substring-after(substring-before($v_plist-as-string, '&lt;/string'), 'string&gt;')"
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:variable name="v_plist-as-string"
+                                                select="bin:decode-string(xs:base64Binary(value[@column = '4']))"/>
+                                            <xsl:variable name="v_relative-file-path"
+                                                select="substring-after(substring-before($v_plist-as-string, '&lt;/string'), 'string&gt;')"/>
+                                            <xsl:value-of
+                                                select="concat($v_base-url, 'Attachments/', $v_relative-file-path)"
                                             />
-                                        <xsl:value-of
-                                            select="concat($v_base-url, 'Attachments/', $v_relative-file-path)"
-                                        />
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of
-                                    select="$v_attachment-location-local/self::row/value[@column = '4']"
-                                />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </URL>
-                </tss:attachmentReference>
-                <!--            <tss:attachmentReference type="Portable Document Format (PDF)"/>-->
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of
+                                        select="value[@column = '4']"
+                                    />
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </URL>
+                        </xsl:for-each-group>
+                    </tss:attachmentReference>
             </xsl:for-each>
         </tss:attachments>
     </xsl:template>
     <xsl:template name="t_generate-authors">
         <!-- the template takes a reference UUID as input and queries the Author.xml file for any rows relating to this reference -->
         <xsl:param name="p_reference-uuid"/>
-<!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Author.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
+        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Author.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <tss:authors>
-            <xsl:for-each select="document(concat($v_input-folder, 'Author.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+            <xsl:for-each
+                select="document(concat($v_input-folder, 'Author.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
                 <tss:author role="{value[@column='5']}">
                     <tss:surname>
                         <xsl:value-of select="value[@column = '2']"/>
@@ -351,9 +353,10 @@
     <xsl:template name="t_generate-keywords">
         <!-- the template takes a reference UUID as input and queries the Note.xml file for any rows relating to this reference -->
         <xsl:param name="p_reference-uuid"/>
-<!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Keyword.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
+        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Keyword.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <tss:keywords>
-            <xsl:for-each select="document(concat($v_input-folder, 'Keyword.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+            <xsl:for-each
+                select="document(concat($v_input-folder, 'Keyword.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
                 <tss:keyword>
                     <xsl:attribute name="assigner" select="value[@column = '2']"/>
                     <xsl:attribute name="correspReference"
