@@ -255,7 +255,7 @@
             <xsl:for-each
                 select="document(concat($v_input-folder, 'Attachment.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = '5'] = 'N']">
                 <xsl:variable name="v_type" select="value[@column = '4']"/>
-                <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = '13'])"/>
+                <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = '11'])"/>
                 <xsl:variable name="v_date-edited" select="oap:iso-timestamp(value[@column = '8'])"/>
                 <xsl:variable name="v_name" select="value[@column = '2']"/>
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
