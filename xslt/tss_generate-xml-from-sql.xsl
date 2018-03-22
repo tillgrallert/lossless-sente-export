@@ -293,15 +293,21 @@
                                 select="concat('uuid_', current-grouping-key())"/>
                             <!-- add custom attribute for location type -->
                             <xsl:attribute name="storageMethod" select="value[@column = '3']"/>
-                            <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
+                            <!-- location data is provided, at least, in three ways:
+                            1. plain text string of a local file path
+                            2. Base64 encoded Apple plist XML files for local relative paths inside the file bundle and earlier sync versions
+                            3. Base64 encoded JSON data: for the latest iteration of the sync server
+                            -->
+                            <xsl:variable name="v_location" select="value[@column = '4']"/>
                             <xsl:choose>
-                                <xsl:when test="starts-with(value[@column = '4'], 'PD94bWwg')">
+                                <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
+                                <xsl:when test="starts-with($v_location, 'PD94bWwg')">
                                     <!-- problem with bin: and saxon: extensions: they do not work in the free Saxon HE -->
                                     <xsl:choose>
                                         <xsl:when test="$p_limited-to-saxon-he = true()">
                                             <xsl:attribute name="type" select="'base64'"/>
                                             <!--<xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
-                                            <xsl:value-of select="value[@column = '4']"/>
+                                            <xsl:value-of select="$v_location"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:variable name="v_plist-as-string"
@@ -314,8 +320,9 @@
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:when>
+                                <!-- here could follow some transformation of the JSON, but this provides only the file names, which we will most likely already know -->
                                 <xsl:otherwise>
-                                    <xsl:value-of select="value[@column = '4']"/>
+                                    <xsl:value-of select="$v_location"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </URL>
