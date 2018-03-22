@@ -260,7 +260,7 @@
                 <xsl:variable name="v_name" select="value[@column = '2']"/>
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
                 <xsl:variable name="v_attachment-location"
-                        select="document(concat($v_input-folder, 'AttachmentLocation.xml'))/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
+                    select="document(concat($v_input-folder, 'AttachmentLocation.xml'))/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
                 <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! Depending on how many version of a file, Sente keeps track of, 
                     the number is potentially unlimited. I have seen at least five entires for the same attachment UUID. One could generate a `<tss:attachmentReference>` for each
                     The values for @column='3' are:
@@ -270,41 +270,38 @@
                     A TEMPORARY solution is to actively select the first local copy-->
                 <!-- column 0: reference UUID; column 1: attachment UUID; column 2: location UUID. -->
                 <!-- only the latter is unique in this file; thus there should be one <tss:attachmentReference> per unique combination of reference UUID and attachment UUID. In case of more than one location UUID, they will have more than one <URL> child -->
-
-                    <!-- not currently used -->
+                <!-- not currently used -->
                 <!--                    <xsl:variable name="v_attachment-location-local" select="$v_attachment-location/self::row[value[@column = '3'] = 'Base Directory-Relative, Optionally Alias-Backed'][1]"/>-->
-                    <!--                <xsl:variable name="v_attachment-location-server" select="$v_attachment-location/self::row[value[@column = '3'] = 'Replication Server']"/>-->
-                    <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
-                    <tss:attachmentReference>
-                        <xsl:attribute name="xml:id" select="concat('uuid_', $v_attachment-uuid)"/>
-                        <xsl:attribute name="correspReference"
-                            select="concat('#uuid_', $p_reference-uuid)"/>
-                        <xsl:attribute name="type" select="$v_type"/>
-                        <xsl:attribute name="editor"
-                            select="$v_editor"/>
-                        <xsl:attribute name="when-iso"
-                            select="$v_date-edited"/>
-                        <name>
-                            <xsl:value-of select="$v_name"/>
-                        </name>
-                        <!-- test if there is more than one location UUID for this attachment -->
-                        <xsl:for-each-group group-by="value[@column = '2']" select="$v_attachment-location/self::row">
+                <!--                <xsl:variable name="v_attachment-location-server" select="$v_attachment-location/self::row[value[@column = '3'] = 'Replication Server']"/>-->
+                <!-- if attachments are kept in a synced folder Sente prefixes a private URI scheme "syncii:" that needs to be dereferenced at some point -->
+                <tss:attachmentReference>
+                    <xsl:attribute name="xml:id" select="concat('uuid_', $v_attachment-uuid)"/>
+                    <xsl:attribute name="correspReference"
+                        select="concat('#uuid_', $p_reference-uuid)"/>
+                    <xsl:attribute name="type" select="$v_type"/>
+                    <xsl:attribute name="editor" select="$v_editor"/>
+                    <xsl:attribute name="when-iso" select="$v_date-edited"/>
+                    <name>
+                        <xsl:value-of select="$v_name"/>
+                    </name>
+                    <!-- test if there is more than one location UUID for this attachment -->
+                    <xsl:for-each-group group-by="value[@column = '2']"
+                        select="$v_attachment-location/self::row">
                         <URL>
-                            <xsl:attribute name="xml:id" select="concat('uuid_', current-grouping-key())"/>
+                            <!-- write location UUID to xml:id -->
+                            <xsl:attribute name="xml:id"
+                                select="concat('uuid_', current-grouping-key())"/>
                             <!-- add custom attribute for location type -->
-                            <xsl:attribute name="storageMethod" select="value[@column='3']"/>
+                            <xsl:attribute name="storageMethod" select="value[@column = '3']"/>
                             <!-- test if the location is provided as Base64 encoded XML or as plain text string -->
                             <xsl:choose>
-                                <xsl:when
-                                    test="starts-with(value[@column = '4'], 'PD94bWwg')">
+                                <xsl:when test="starts-with(value[@column = '4'], 'PD94bWwg')">
                                     <!-- problem with bin: and saxon: extensions: they do not work in the free Saxon HE -->
                                     <xsl:choose>
                                         <xsl:when test="$p_limited-to-saxon-he = true()">
                                             <xsl:attribute name="type" select="'base64'"/>
                                             <!--<xsl:value-of select="substring-after(substring-before($v_path-as-string,'&lt;'),'&gt;')"/>-->
-                                            <xsl:value-of
-                                                select="value[@column = '4']"
-                                            />
+                                            <xsl:value-of select="value[@column = '4']"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:variable name="v_plist-as-string"
@@ -318,14 +315,12 @@
                                     </xsl:choose>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of
-                                        select="value[@column = '4']"
-                                    />
+                                    <xsl:value-of select="value[@column = '4']"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </URL>
-                        </xsl:for-each-group>
-                    </tss:attachmentReference>
+                    </xsl:for-each-group>
+                </tss:attachmentReference>
             </xsl:for-each>
         </tss:attachments>
     </xsl:template>
