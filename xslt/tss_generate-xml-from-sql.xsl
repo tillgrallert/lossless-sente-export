@@ -36,6 +36,12 @@
     <xsl:variable name="v_column-notes-attachmentUUID" select="count($v_file-notes/table/columns/column[name='AttachmentUUID']/preceding-sibling::column)"/>
     <xsl:variable name="v_column-notes-lastEditingUser" select="count($v_file-notes/table/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
     <xsl:variable name="v_column-notes-locationInAttachedFile" select="count($v_file-notes/table/columns/column[name='LocationInAttachedFile']/preceding-sibling::column)"/>
+    <!-- check the column number for specific fields in 'Attachment.xml'. This is necessary as the sort order can change -->
+    <xsl:variable name="v_column-attachments-isDeleted" select="count($v_file-attachments/table/columns/column[name='IsDeleted']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-attachmentType" select="count($v_file-attachments/table/columns/column[name='AttachmentType']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-dateModified" select="count($v_file-attachments/table/columns/column[name='dateModified']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-lastEditingUser" select="count($v_file-attachments/table/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-attachmentName" select="count($v_file-attachments/table/columns/column[name='AttachmentName']/preceding-sibling::column)"/>
         
     <xsl:template match="/">
         <xsl:result-document href="_output/compiled.TSS.xml">
@@ -269,11 +275,11 @@
         <tss:attachments>
             <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 5: IsDeleted. -->
             <xsl:for-each
-                select="$v_file-attachments/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = '5'] = 'N']">
-                <xsl:variable name="v_type" select="value[@column = '4']"/>
-                <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = '11'])"/>
-                <xsl:variable name="v_date-edited" select="oap:iso-timestamp(value[@column = '8'])"/>
-                <xsl:variable name="v_name" select="value[@column = '2']"/>
+                select="$v_file-attachments/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = $v_column-attachments-isDeleted] = 'N']">
+                <xsl:variable name="v_type" select="value[@column = $v_column-attachments-attachmentType]"/>
+                <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = $v_column-attachments-lastEditingUser])"/>
+                <xsl:variable name="v_date-edited" select="oap:iso-timestamp(value[@column = $v_column-attachments-dateModified])"/>
+                <xsl:variable name="v_name" select="value[@column = $v_column-attachments-attachmentName]"/>
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
                 <xsl:variable name="v_attachment-location"
                     select="$v_file-attachment-locations/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
