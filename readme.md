@@ -113,6 +113,7 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 8. **LibraryProperty**: stores basic settings, including the path to the Sente library and thus attachments. If you have access to Saxon PE or Saxon EE, export this table as XML
 9. **Note**:
     - This is the most important table to improve the generic XML export
+    - **PROBLEM**: order of columns differs between Sente libraries (why?!). This requires additional pre-processing 
     - contains information otherwise missing as JSON:
         + color
         + the file this note is attached to
