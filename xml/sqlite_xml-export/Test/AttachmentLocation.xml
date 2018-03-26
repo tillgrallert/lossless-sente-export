@@ -1046,6 +1046,14 @@
             <value column="5"></value>
         </row>
         <row>
+            <value column="0">9ED5D922-8984-4EBB-951B-11919769814A</value>
+            <value column="1">23D0D75D-EDFB-4CB4-801E-D082530BB449</value>
+            <value column="2">C138DD55-ADDF-4768-A941-74422B4FFD56</value>
+            <value column="3">Remote URL</value>
+            <value column="4">(null):images/issues/oclc_792755216-i_1-p_5.jpg</value>
+            <value column="5"></value>
+        </row>
+        <row>
             <value column="0">21D0D0DC-FFFE-4DF7-B588-EF192D1427B9</value>
             <value column="1">CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1</value>
             <value column="2">9F9C4071-9EE1-4E54-B1FB-3B55BC0A87C5</value>
