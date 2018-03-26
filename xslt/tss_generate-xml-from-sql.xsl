@@ -29,6 +29,14 @@
     <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
     <xsl:variable name="v_column-names"
         select="document(concat($v_input-folder, 'Reference.xml'))/table/columns"/>
+    <!-- check the column number for specific fields in 'Notes.xml'. This is necessary as the sort order can change -->
+    <xsl:variable name="v_column-notes-isDeleted" select="count($v_file-notes/table/columns/column[name='IsDeleted']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-dateModified" select="count($v_file-notes/table/columns/column[name='DateModified']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-annotationDetails" select="count($v_file-notes/table/columns/column[name='AnnotationDetails']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-attachmentUUID" select="count($v_file-notes/table/columns/column[name='AttachmentUUID']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-lastEditingUser" select="count($v_file-notes/table/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-locationInAttachedFile" select="count($v_file-notes/table/columns/column[name='LocationInAttachedFile']/preceding-sibling::column)"/>
+        
     <xsl:template match="/">
         <xsl:result-document href="_output/compiled.TSS.xml">
             <!-- group by PrimaryReferenceUUID in  -->
@@ -140,14 +148,13 @@
     <xsl:template name="t_generate-notes">
         <!-- the template takes a reference UUID as input and queries the Note.xml file for any rows relating to this reference -->
         <xsl:param name="p_reference-uuid"/>
-        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Note.xml'))/table/rows/row[value[@column = '1'] = $p_reference-uuid]"/>-->
         <tss:notes>
             <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 10: IsDeleted. -->
             <!-- In addition, the Note.xml file also contains all notes attached to references long since deleted, which, however, will not be marked as having been deleted themselves -->
             <xsl:for-each
-                select="$v_file-notes/table/rows/row[value[@column = '1'] = $p_reference-uuid][value[@column = '10'] = 'N']">
+                select="$v_file-notes/table/rows/row[value[@column = '1'] = $p_reference-uuid][value[@column = $v_column-notes-isDeleted] = 'N']">
                 <xsl:variable name="v_color-rgba">
-                    <xsl:analyze-string regex="RGBA.+?\[(.+?)\]" select="value[@column = '9']">
+                    <xsl:analyze-string regex="RGBA.+?\[(.+?)\]" select="value[@column = $v_column-notes-annotationDetails]">
                         <xsl:matching-substring>
                             <xsl:value-of select="regex-group(1)"/>
                         </xsl:matching-substring>
@@ -193,7 +200,7 @@
                 </xsl:variable>
                 <xsl:variable name="v_type">
                     <xsl:analyze-string regex="Original Selection Mode&quot;:&quot;(.+?)&quot;"
-                        select="value[@column = '9']">
+                        select="value[@column = $v_column-notes-annotationDetails]">
                         <xsl:matching-substring>
                             <xsl:value-of select="lower-case(regex-group(1))"/>
                         </xsl:matching-substring>
@@ -204,12 +211,12 @@
                     <xsl:attribute name="correspReference"
                         select="concat('#uuid_', $p_reference-uuid)"/>
                     <xsl:attribute name="correspAttachment"
-                        select="concat('#uuid_', value[@column = '7'])"/>
+                        select="concat('#uuid_', value[@column = $v_column-notes-attachmentUUID])"/>
                     <xsl:attribute name="editor"
-                        select="concat('Sente User ', value[@column = '14'])"/>
+                        select="concat('Sente User ', value[@column = $v_column-notes-lastEditingUser])"/>
                     <xsl:attribute name="color" select="$v_color"/>
                     <xsl:attribute name="inputOs" select="$v_input-os"/>
-                    <xsl:attribute name="when-iso" select="oap:iso-timestamp(value[@column = '11'])"/>
+                    <xsl:attribute name="when-iso" select="oap:iso-timestamp(value[@column = $v_column-notes-dateModified])"/>
                     <!-- some css based on the JSON data stream -->
                     <xsl:choose>
                         <xsl:when test="$v_type = 'text'">
@@ -245,11 +252,11 @@
                     <!-- custom elements mirroring the column name in the SQLite source -->
                     <!-- column 8: position in attached file -->
                     <locationInAttachedFile>
-                        <xsl:value-of select="value[@column = '8']"/>
+                        <xsl:value-of select="value[@column = $v_column-notes-locationInAttachedFile]"/>
                     </locationInAttachedFile>
                     <!-- column 9: annotation details; JSON including geometry, position on page, colour, strike etc. -->
                     <annotationDetails>
-                        <xsl:value-of select="value[@column = '9']"/>
+                        <xsl:value-of select="value[@column = $v_column-notes-annotationDetails]"/>
                     </annotationDetails>
                 </tss:note>
             </xsl:for-each>
