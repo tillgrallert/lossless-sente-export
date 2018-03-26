@@ -13,6 +13,15 @@
     <xsl:param name="p_limited-to-saxon-he" select="true()"/>
     <xsl:param name="p_debug" select="true()"/>
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
+    <!-- select and load the input files into memory -->
+    <xsl:variable name="v_file-attachments" select="document(concat($v_input-folder, 'Attachment.xml'))"/>
+    <xsl:variable name="v_file-attachment-locations" select="document(concat($v_input-folder, 'AttachmentLocation.xml'))"/>
+    <xsl:variable name="v_file-authors" select="document(concat($v_input-folder, 'Author.xml'))"/>
+    <xsl:variable name="v_file-keywords" select="document(concat($v_input-folder, 'Keyword.xml'))"/>
+    <xsl:variable name="v_file-notes" select="document(concat($v_input-folder, 'Note.xml'))"/>
+    <xsl:variable name="v_file-references" select="document(concat($v_input-folder, 'Reference.xml'))"/>
+    <xsl:variable name="v_file-sparse-attributes" select="document(concat($v_input-folder, 'SparseAttribute.xml'))"/>
+    
     <!-- static variables for all references -->
     <xsl:variable name="v_base-url"
         select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
@@ -42,7 +51,7 @@
     <xsl:template name="t_generate-references">
         <xsl:param name="p_reference-uuid"/>
         <xsl:for-each
-            select="document(concat($v_input-folder, 'Reference.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+            select="$v_file-references/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
             <!-- set a number of general variables -->
             <xsl:variable name="v_spares-attributes"
                 select="document(concat($v_input-folder, 'SparseAttribute.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>
@@ -118,7 +127,7 @@
         <xsl:param name="p_reference-uuid"/>
         <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'SparseAttribute.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <xsl:for-each
-            select="document(concat($v_input-folder, 'SparseAttribute.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+            select="$v_file-sparse-attributes/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
             <!-- exclude certain rows -->
             <xsl:if
                 test="not(value[@column = '1'] = ('Retrieval year', 'Retrieval month', 'Retrieval day'))">
@@ -136,7 +145,7 @@
             <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 10: IsDeleted. -->
             <!-- In addition, the Note.xml file also contains all notes attached to references long since deleted, which, however, will not be marked as having been deleted themselves -->
             <xsl:for-each
-                select="document(concat($v_input-folder, 'Note.xml'))/table/rows/row[value[@column = '1'] = $p_reference-uuid][value[@column = '10'] = 'N']">
+                select="$v_file-notes/table/rows/row[value[@column = '1'] = $p_reference-uuid][value[@column = '10'] = 'N']">
                 <xsl:variable name="v_color-rgba">
                     <xsl:analyze-string regex="RGBA.+?\[(.+?)\]" select="value[@column = '9']">
                         <xsl:matching-substring>
@@ -253,14 +262,14 @@
         <tss:attachments>
             <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 5: IsDeleted. -->
             <xsl:for-each
-                select="document(concat($v_input-folder, 'Attachment.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = '5'] = 'N']">
+                select="$v_file-attachments/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = '5'] = 'N']">
                 <xsl:variable name="v_type" select="value[@column = '4']"/>
                 <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = '11'])"/>
                 <xsl:variable name="v_date-edited" select="oap:iso-timestamp(value[@column = '8'])"/>
                 <xsl:variable name="v_name" select="value[@column = '2']"/>
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
                 <xsl:variable name="v_attachment-location"
-                    select="document(concat($v_input-folder, 'AttachmentLocation.xml'))/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
+                    select="$v_file-attachment-locations/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
                 <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! Depending on how many version of a file, Sente keeps track of, 
                     the number is potentially unlimited. I have seen at least five entires for the same attachment UUID. One could generate a `<tss:attachmentReference>` for each
                     The values for @column='3' are:
@@ -337,7 +346,7 @@
         <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Author.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <tss:authors>
             <xsl:for-each
-                select="document(concat($v_input-folder, 'Author.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+                select="$v_file-authors/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
                 <tss:author role="{value[@column='5']}">
                     <tss:surname>
                         <xsl:value-of select="value[@column = '2']"/>
@@ -358,7 +367,7 @@
         <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Keyword.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <tss:keywords>
             <xsl:for-each
-                select="document(concat($v_input-folder, 'Keyword.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+                select="$v_file-keywords/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
                 <tss:keyword>
                     <xsl:attribute name="assigner" select="value[@column = '2']"/>
                     <xsl:attribute name="correspReference"
