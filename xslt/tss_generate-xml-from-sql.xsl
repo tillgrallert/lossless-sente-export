@@ -11,7 +11,7 @@
     <!-- output is currently a single Sente XML file for all references. Using the modular templates in this stylesheet, this can easily be changed to generate one file for every reference -->
     <xsl:param name="p_limited-to-saxon-he" select="true()"/>
     <xsl:param name="p_debug" select="true()"/>
-    <xsl:param name="p_cut-off-date" select="'2017-05-17'"/>
+    <xsl:param name="p_cut-off-date" select="'2001-01-01'"/>
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
     <!-- select and load the input files into memory -->
     <xsl:variable name="v_file-attachments" select="document(concat($v_input-folder, 'Attachment.xml'))"/>
