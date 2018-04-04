@@ -11,6 +11,7 @@
     <!-- output is currently a single Sente XML file for all references. Using the modular templates in this stylesheet, this can easily be changed to generate one file for every reference -->
     <xsl:param name="p_limited-to-saxon-he" select="true()"/>
     <xsl:param name="p_debug" select="true()"/>
+    <xsl:param name="p_cut-off-date" select="'2017-05-17'"/>
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
     <!-- select and load the input files into memory -->
     <xsl:variable name="v_file-attachments" select="document(concat($v_input-folder, 'Attachment.xml'))"/>
@@ -43,12 +44,14 @@
     <xsl:variable name="v_column-attachments-attachmentName" select="count($v_file-attachments/table/columns/column[name='AttachmentName']/preceding-sibling::column)"/>
         
     <xsl:template match="/">
-        <xsl:result-document href="_output/compiled.TSS.xml">
+        <xsl:result-document href="_output/compiled-cut-off_{$p_cut-off-date}.TSS.xml">
             <!-- group by PrimaryReferenceUUID in  -->
             <tss:senteContainer>
                 <tss:library>
                     <tss:references>
-                        <xsl:for-each-group group-by="value[@column = '0']" select="table/rows/row">
+                        <!-- exclude all references modified before the cut-off date -->
+                        <xsl:for-each-group group-by="value[@column = '0']" select="table/rows/row[oap:iso-date(value[@column = '19']) &gt;= $p_cut-off-date]">
+                            <!-- sort by modification date -->
                             <xsl:sort order="descending"
                                 select="current-group()/value[@column = '19']"/>
                             <xsl:call-template name="t_generate-references">
