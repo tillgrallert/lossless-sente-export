@@ -400,11 +400,9 @@
                 <xsl:variable name="v_tag" select="value[@column = '1']"/>
                 <tss:keyword>
                     <xsl:attribute name="assigner" select="value[@column = '2']"/>
-                    <xsl:if test="$p_debug = true()">
                         <xsl:attribute name="quickTagHierarchy">
                             <xsl:copy-of select="$v_tags/tss:keyword[text() = $v_tag]/@quickTagHierarchy"/>
                         </xsl:attribute>
-                    </xsl:if>
                     <!-- this is redundant since <tss:keywords> is a direct child of the <tss:reference> this attribute refers to -->
 <!--                    <xsl:attribute name="correspReference" select="concat('#uuid_', $p_reference-uuid)"/>-->
                     <xsl:value-of select="$v_tag"/>
