@@ -133,7 +133,15 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 21. **SparseAttribute**
     - contains all custom fields
 23. Thumbnail
-24. VersionedLibraryProperty
+24. **VersionedLibraryProperty**
+    - this table contains JSON 
+        + *QuickTag* list and hierarchy
+        + *status* definitions
+        + *hotwords* definitions
+        + custom publication types
+        + custom reference fields
+        + layouts for the reference editor by reference type
+        + autolink definitions
 
 ## Issues
 
