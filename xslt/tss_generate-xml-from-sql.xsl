@@ -26,6 +26,8 @@
     <xsl:variable name="v_file-notes" select="document(concat($v_input-folder, 'Note.xml'))"/>
     <xsl:variable name="v_file-references" select="document(concat($v_input-folder, 'Reference.xml'))"/>
     <xsl:variable name="v_file-sparse-attributes" select="document(concat($v_input-folder, 'SparseAttribute.xml'))"/>
+    <xsl:variable name="v_file-versioned-library-property" select="document(concat($v_input-folder, 'VersionedLibraryProperty.xml'))"/>
+    
     
     <!-- static variables for all references -->
     <xsl:variable name="v_base-url"
