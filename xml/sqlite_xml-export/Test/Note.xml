@@ -4,15 +4,15 @@
     <name>Note</name>
     <ddl>CREATE TABLE Note ( NoteUUID varchar, PrimaryReferenceUUID varchar, Title varchar COLLATE SenteLocalizedNoCase, Pages varchar COLLATE SenteLocalizedNoCase, Quotation varchar COLLATE SenteLocalizedNoCase, Comment varchar COLLATE SenteLocalizedNoCase, NoteType varchar, AttachmentUUID varchar, LocationInAttachedFile varchar, AnnotationDetails varchar, IsDeleted varchar, DateModified varchar, ReplicationRevisionNumber int, HasUnreplicatedChanges varchar, LastEditingUser varchar );</ddl>
     <columns>
-        <column>
+        <column n="0">
             <name>NoteUUID</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="1">
             <name>PrimaryReferenceUUID</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column  n="2">
             <name>Title</name>
             <type>varchar</type>
             <constraints>
@@ -22,7 +22,7 @@
                 </constraint>
             </constraints>
         </column>
-        <column>
+        <column n="3">
             <name>Pages</name>
             <type>varchar</type>
             <constraints>
@@ -32,7 +32,7 @@
                 </constraint>
             </constraints>
         </column>
-        <column>
+        <column n="4">
             <name>Quotation</name>
             <type>varchar</type>
             <constraints>
@@ -42,7 +42,7 @@
                 </constraint>
             </constraints>
         </column>
-        <column>
+        <column n="5">
             <name>Comment</name>
             <type>varchar</type>
             <constraints>
@@ -52,39 +52,39 @@
                 </constraint>
             </constraints>
         </column>
-        <column>
+        <column n="6">
             <name>NoteType</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="7">
             <name>AttachmentUUID</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="8">
             <name>LocationInAttachedFile</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="9">
             <name>AnnotationDetails</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="10">
             <name>IsDeleted</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="11">
             <name>DateModified</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="12">
             <name>ReplicationRevisionNumber</name>
             <type>int</type>
         </column>
-        <column>
+        <column n="13">
             <name>HasUnreplicatedChanges</name>
             <type>varchar</type>
         </column>
-        <column>
+        <column n="14">
             <name>LastEditingUser</name>
             <type>varchar</type>
         </column>
