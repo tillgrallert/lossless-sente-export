@@ -112,8 +112,7 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 7. Library: empty
 8. **LibraryProperty**: stores basic settings, including the path to the Sente library and thus attachments. If you have access to Saxon PE or Saxon EE, export this table as XML
 9. **Note**:
-    - This is the most important table to improve the generic XML export
-    - **PROBLEM**: order of columns differs between Sente libraries (why?!). This requires additional pre-processing 
+    - This is the most important table to improve the generic XML export 
     - contains information otherwise missing as JSON:
         + color
         + the file this note is attached to
@@ -134,7 +133,22 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 21. **SparseAttribute**
     - contains all custom fields
 23. Thumbnail
-24. VersionedLibraryProperty
+24. **VersionedLibraryProperty**
+    - this table contains JSON 
+        + *QuickTag* list and hierarchy
+        + *status* definitions
+        + *hotwords* definitions
+        + custom publication types
+        + custom reference fields
+        + layouts for the reference editor by reference type
+        + autolink definitions
+
+## Issues
+
+- the order of columns in tables differs between Sente libraries (why?!). This requires additional pre-processing
+- currently, I have found different sequences of columns in
+    + `Note`
+    + `Attachment`
 
 
 [^1]: It is unclear where this information is kept in the SQLite data base
