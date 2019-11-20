@@ -9,7 +9,7 @@ Sente natively supports a number of export options of bibliographic data as well
 
 # Problem 1: incomplete XML export
 
-Sente supports XML export following its own schema; but some important information is missing from this export, 
+Sente supports XML export following its own schema; but some important information is missing from this export,
 
 - particularly for the notes attached to PDFs:
     - colour of the note;
@@ -31,9 +31,9 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     + generating `<tss:notes>`
         * only some parts of the JSON serialisation of position in file, location on page, color, etc. have been translated into CSS styling attributes
         * The entire JSON serialisation is kept for further processing in a new custom child of `<tss:note>` named `<tss:annotationDetails>`
-        
-    ~~~{.xml}
-    <tss:note 
+
+    ```xml
+    <tss:note
      xml:id="uuid_0B3368F6-BF56-49BE-94B5-396D0B7F50BC"
      correspReference="#uuid_21D0D0DC-FFFE-4DF7-B588-EF192D1427B9"
      correspAttachment="#uuid_CFF6C9A0-BCCD-47FC-8359-B8BDAD3FE4B1"
@@ -47,14 +47,14 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
         <locationInAttachedFile>{"Encoding":"V1","X":559.4985,"Page":1,"Y":641.07}</locationInAttachedFile>
         <annotationDetails>{"Encoding":"V1","Selection Original Ending Point":"{551.498474,504.381134}","Type":"Highlighted Text","Original Selection Mode":"Region","Selection Target Zone":"{{430.897891,504.381134},{120.600583,136.688866}}","Rectangles":[{"Stroke RGBA":[1,0.3137255,0.3137255,0.2],"Bounds":"{{430.897891,504.381134},{120.600583,136.688866}}","Stroke Width":4,"Corner Radius":3}],"Selection Original Starting Point":"{430.897891,641.070000}"}</annotationDetails>
     </tss:note>
-    ~~~
+    ```
 
     + generating `<tss:attachments>`
         * Problem: local paths are stored as alphanumerical strings using Base64. There are numerous implementations to convert `xs:base64Binary` to `xs:string` but none of the available extensions ([saxon's `saxon:base64Binary-to-string`]() and [EXPath's `bin:decode-string()`](http://expath.org/spec/binary#decode-string)) and [stylesheets](https://github.com/ilyakharlamov/xslt_base64) is both free to use and can deal with unicode. Thus, I decided to leave base64 binary data as it is.
         * example XML:
-    
-    ~~~{.xml}
-    <tss:attachmentReference 
+
+    ```xml
+    <tss:attachmentReference
      xml:id="uuid_9F730A80-E794-4726-8141-D37EEF4B51F5"
      correspReference="#uuid_9ED5D922-8984-4EBB-951B-11919769814A"
      type=""
@@ -63,34 +63,63 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
         <name/>
         <URL>(null):images/pdfs/oclc_792755216-i_1.pdf</URL>
     </tss:attachmentReference>
-    ~~~
+    ```
 
     + generating `<tss:keywords>`
 
-    ~~~{.xml}
-    <tss:keyword 
+    ```xml
+    <tss:keyword
      assigner="Sente User Sebastian"
      correspReference="#uuid_21D0D0DC-FFFE-4DF7-B588-EF192D1427B9">Source</tss:keyword>
-    ~~~
+    ```
 
 ## Workflow
 
 1. Download and install [SQLiteStudio](http://sqlitestudio.pl)
 2. Open your Sente library with SQLiteStudio
-    - on macOS do the following: 
+    - on macOS do the following:
         + In the Finder, right-click on your Sente library and select `Show Package Contents`.
         + The actual SQLite database is then located at `Contents/primaryLibrary.sente601`
 3. Export all tables emphasised in bold in the documentation below to XML using the table names as file names.
-4. Open all XML files in a text editor and manually remove the trailing `<index>` nodes from every XML file as these prevent the files from being well-formed XML.
-5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing. 
+4. Clean the export
+    1. Open all XML files in a text editor and manually remove the trailing `<index>` nodes from every XML file as these prevent the files from being well-formed XML.
+    2. Remove invalid XML characters. The cause is bibliographic data imported from non-English references and notes on OCRed PDFs:
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``
+        - ``: ü
+        - ``
+5. Run the stylesheet [`tss_generate-xml-from-sql.xsl`](xslt/tss_generate-xml-from-sql.xsl) on `Reference.xml`. The output file `compiled.TSS.xml` contains all information available in the SQLite database. It will be saved in the `_output/` folder and can be used for further processing.
 
     Options to apply the transformation include:
 
     + running [Saxon-HE](http://saxon.sourceforge.net/#F9.8HE) for Java in the terminal:
 
-    ~~~
+    ```bash
     $ java -jar "path/to/saxon9he.jar" -s:"path/to/Reference.xml" -xsl:"path/to/tss_generate-xml-from-sql.xsl"
-    ~~~
+    ```
 
     + using one of the XML editors that include an XSLT processor, such as oXygen (30 days trial licences available)
         * In this case, you should set the parameter `$p_limited-to-saxon-he` to `false()` in order to translate base64 binary data to proper file paths to attachments.
@@ -112,7 +141,7 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
 7. Library: empty
 8. **LibraryProperty**: stores basic settings, including the path to the Sente library and thus attachments. If you have access to Saxon PE or Saxon EE, export this table as XML
 9. **Note**:
-    - This is the most important table to improve the generic XML export 
+    - This is the most important table to improve the generic XML export
     - contains information otherwise missing as JSON:
         + color
         + the file this note is attached to
@@ -134,7 +163,7 @@ Sente does not allow for bulk export of annotated PDFs. One idea would to write 
     - contains all custom fields
 23. Thumbnail
 24. **VersionedLibraryProperty**
-    - this table contains JSON 
+    - this table contains JSON
         + *QuickTag* list and hierarchy
         + *status* definitions
         + *hotwords* definitions
