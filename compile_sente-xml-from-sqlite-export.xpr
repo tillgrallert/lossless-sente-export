@@ -6,6 +6,26 @@
             <serialized version="19.1" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
+                        <String>scenario.associations</String>
+                        <scenarioAssociation-array>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>xml/sqlite_xml-export/BachSecondary/Reference.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>Compile Sente XML from SQLite export</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                        </scenarioAssociation-array>
+                    </entry>
+                    <entry>
                         <String>scenarios</String>
                         <scenario-array>
                             <scenario>

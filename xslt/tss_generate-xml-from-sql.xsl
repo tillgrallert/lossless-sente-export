@@ -265,27 +265,27 @@
                             </xsl:attribute>
                         </xsl:when>
                     </xsl:choose>
-                    <title>
+                    <tss:title>
                         <xsl:value-of select="value[@column = '2']"/>
-                    </title>
-                    <comment>
+                    </tss:title>
+                    <tss:comment>
                         <xsl:value-of select="value[@column = '5']"/>
-                    </comment>
-                    <quotation>
+                    </tss:comment>
+                    <tss:quotation>
                         <xsl:value-of select="value[@column = '4']"/>
-                    </quotation>
-                    <pages>
+                    </tss:quotation>
+                    <tss:pages>
                         <xsl:value-of select="value[@column = '3']"/>
-                    </pages>
+                    </tss:pages>
                     <!-- custom elements mirroring the column name in the SQLite source -->
                     <!-- column 8: position in attached file -->
-                    <locationInAttachedFile>
+                    <tss:locationInAttachedFile>
                         <xsl:value-of select="value[@column = $v_column-notes-locationInAttachedFile]"/>
-                    </locationInAttachedFile>
+                    </tss:locationInAttachedFile>
                     <!-- column 9: annotation details; JSON including geometry, position on page, colour, strike etc. -->
-                    <annotationDetails>
+                    <tss:annotationDetails>
                         <xsl:value-of select="value[@column = $v_column-notes-annotationDetails]"/>
-                    </annotationDetails>
+                    </tss:annotationDetails>
                 </tss:note>
             </xsl:for-each>
         </tss:notes>
