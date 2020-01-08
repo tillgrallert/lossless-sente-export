@@ -81,6 +81,15 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
         + In the Finder, right-click on your Sente library and select `Show Package Contents`.
         + The actual SQLite database is then located at `Contents/primaryLibrary.sente601`
 3. Export all tables emphasised in bold in the documentation below to XML using the table names as file names.
+    1. **Attachment**
+    2. **AttachmentLocation**
+    3. **Author**
+    6. **Keyword**
+    8. **LibraryProperty**
+    9. **Note**
+    14. **Reference**
+    21. **SparseAttribute**
+    24. **VersionedLibraryProperty**
 4. Clean the export
     1. Open all XML files in a text editor and manually remove the trailing `<index>` nodes from every XML file as these prevent the files from being well-formed XML.
     2. Remove invalid XML characters. The cause is bibliographic data imported from non-English references and notes on OCRed PDFs:
@@ -127,6 +136,25 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
 # Problem 2: no batch export of annotated PDFs
 
 Sente does not allow for bulk export of annotated PDFs. One idea would to write a script using macOS' GUI scripting to perform manual clicks and let it run for days on end. Another option would be to somehow use XSL-FO to add notes to PDFs using the information in the "Note" table.
+
+# Convert to useful data format
+## Zotero: JSON
+
+Zotero allows for editing of references through an API that accepts their custom JSON. The challenge is to map as much information as possible from Sente ot Zotero.
+
+>By default, objects returned from the API in `format=json` mode include a data property containing “editable JSON” — that is, all the object fields that can be modified and sent back to the server
+
+There is a way of getting [a JSON template for new items](https://www.zotero.org/support/dev/web_api/v3/types_and_fields#getting_a_template_for_a_new_item).
+
+- Problems
+    + Zotero does not accept colour values for notes
+    + Zotero limits the available data fields depening on the reference type
+    + The API allows to modify existing references only?
+
+- Notes
+    + Zotero provides access to the notes through the API
+    + notes are independent of references
+
 
 # Documentation
 ## Database structure: tables
