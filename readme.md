@@ -154,6 +154,7 @@ There is a way of getting [a JSON template for new items](https://www.zotero.org
 - Notes
     + Zotero provides access to the notes through the API
     + notes are independent of references
+    + The content of notes is transmitted as HTML
 
 
 # Documentation
