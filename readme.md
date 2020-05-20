@@ -95,15 +95,16 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     2. Remove invalid XML characters. The cause is bibliographic data imported from non-English references and notes on OCRed PDFs. If nothing else is provided, replace with spaces
         - ``
         - ``
-        - ``
+        - ``: " "
         - ``
         - ``
+        - ``
         - ``
         - ``
         - ``
         - ``
         - ``
-        - ``
+        - ``: "ft"
         - ``
         - ``
         - ``
@@ -111,9 +112,11 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
         - ``
         - ``
         - ``
+        - ``
+        - ``
         - ``
-        - ``
-        - ``
+        - ``: "fl"
+        - ``: "ff"
         - ``
         - ``
         - ``
