@@ -92,7 +92,7 @@ After some poking around, I settled on using the free, multi-platform [SQLiteStu
     24. **VersionedLibraryProperty**
 4. Clean the export
     1. Open all XML files in a text editor and manually remove the trailing `<index>` nodes from every XML file as these prevent the files from being well-formed XML.
-    2. Remove invalid XML characters. The cause is bibliographic data imported from non-English references and notes on OCRed PDFs:
+    2. Remove invalid XML characters. The cause is bibliographic data imported from non-English references and notes on OCRed PDFs. If nothing else is provided, replace with spaces
         - ``
         - ``
         - ``
