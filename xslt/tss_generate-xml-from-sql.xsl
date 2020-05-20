@@ -191,24 +191,25 @@
                 <!-- translate rgba to colour names -->
                 <xsl:variable name="v_color">
                     <xsl:choose>
-                        <xsl:when test="$v_color-rgba = '0.9960784,0.8745098,0,0.2'">
+                        <xsl:when test="matches($v_color-rgba,'0.9960784,0.8745098,0,0.2')">
                             <xsl:text>yellow</xsl:text>
                         </xsl:when>
-                        <xsl:when test="$v_color-rgba = '1,0.3137255,0.3137255,0.2'">
+                        <xsl:when test="matches($v_color-rgba,'1,0.3137255,0.3137255,0.2')">
                             <xsl:text>red</xsl:text>
                         </xsl:when>
-                        <xsl:when test="$v_color-rgba = '0.3921569,0.627451,0.7843137,0.2'">
+                        <xsl:when test="matches($v_color-rgba,'0.3921569,0.627451,0.7843137,0.2')">
                             <xsl:text>blue</xsl:text>
                         </xsl:when>
-                        <xsl:when test="$v_color-rgba = '0.4392157,0.6431373,0.5372549,0.2'">
+                        <xsl:when test="matches($v_color-rgba,'0.4392157,0.6431373,0.5372549,0.2')">
                             <xsl:text>green</xsl:text>
                         </xsl:when>
-                        <xsl:when test="$v_color-rgba = '0.5764706,0.3137255,0.6196079,0.2'">
+                        <xsl:when test="matches($v_color-rgba,'0.5764706,0.3137255,0.6196079,0.2')">
                             <xsl:text>purple</xsl:text>
                         </xsl:when>
-                        <xsl:when test="$v_color-rgba = '0.9647059,0.572549,0.2509804,0.2'">
+                        <xsl:when test="matches($v_color-rgba,'0.9647059,0.572549,0.2509804,0.2')">
                             <xsl:text>orange</xsl:text>
                         </xsl:when>
+                        <!-- fallback -->
                         <xsl:otherwise>
                             <xsl:text>unknown</xsl:text>
                         </xsl:otherwise>
