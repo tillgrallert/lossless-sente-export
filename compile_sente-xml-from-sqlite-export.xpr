@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="19.1">
+<project version="21.1">
     <meta>
         <filters directoryPatterns="" filePatterns="compile_sente-xml-from-sqlite-export.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="19.1" xml:space="preserve">
+            <serialized version="21.1" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>scenario.associations</String>
@@ -71,9 +71,6 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <null/>
-                                </field>
                                 <field name="outputResource">
                                     <null/>
                                 </field>
@@ -121,6 +118,33 @@
                                                 <String>${ask('Compile references edited after:', string, '2001-01-01')}</String>
                                             </field>
                                             <field name="hasXPathValue">
+                                                <Boolean>false</Boolean>
+                                            </field>
+                                            <field name="isStatic">
+                                                <Boolean>false</Boolean>
+                                            </field>
+                                        </transformationParameter>
+                                        <transformationParameter>
+                                            <field name="paramDescription">
+                                                <paramDescriptor>
+                                                    <field name="localName">
+                                                        <String>p_limited-to-saxon-he</String>
+                                                    </field>
+                                                    <field name="prefix">
+                                                        <null/>
+                                                    </field>
+                                                    <field name="namespace">
+                                                        <null/>
+                                                    </field>
+                                                </paramDescriptor>
+                                            </field>
+                                            <field name="value">
+                                                <String>false()</String>
+                                            </field>
+                                            <field name="hasXPathValue">
+                                                <Boolean>true</Boolean>
+                                            </field>
+                                            <field name="isStatic">
                                                 <Boolean>false</Boolean>
                                             </field>
                                         </transformationParameter>
