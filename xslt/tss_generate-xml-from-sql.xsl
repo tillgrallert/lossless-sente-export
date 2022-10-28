@@ -31,30 +31,30 @@
     
     <!-- static variables for all references -->
     <xsl:variable name="v_base-url"
-        select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))/table/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
+        select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))//table[1]/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
     <!-- bibliographic information from Reference.xml -->
     <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
     <xsl:variable name="v_column-names"
-        select="$v_file-references/table/columns"/>
-    <xsl:variable name="v_quicktag-list" select="json-to-xml($v_file-versioned-library-property/table/rows/row[value[@column = 0] = 'QuickTag List']/value[@column = 1])"/>
+        select="$v_file-references//table[1]/columns"/>
+    <xsl:variable name="v_quicktag-list" select="json-to-xml($v_file-versioned-library-property//table[1]/rows/row[value[@column = 0] = 'QuickTag List']/value[@column = 1])"/>
     <xsl:variable name="v_tags">
             <xsl:apply-templates select="$v_quicktag-list/descendant::fnxpath:string[@key='keyword']">
                 <xsl:sort select="."/>
             </xsl:apply-templates>
     </xsl:variable>
     <!-- check the column number for specific fields in 'Notes.xml'. This is necessary as the sort order can change -->
-    <xsl:variable name="v_column-notes-isDeleted" select="count($v_file-notes/table/columns/column[name='IsDeleted']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-notes-dateModified" select="count($v_file-notes/table/columns/column[name='DateModified']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-notes-annotationDetails" select="count($v_file-notes/table/columns/column[name='AnnotationDetails']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-notes-attachmentUUID" select="count($v_file-notes/table/columns/column[name='AttachmentUUID']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-notes-lastEditingUser" select="count($v_file-notes/table/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-notes-locationInAttachedFile" select="count($v_file-notes/table/columns/column[name='LocationInAttachedFile']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-isDeleted" select="count($v_file-notes//table[1]/columns/column[name='IsDeleted']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-dateModified" select="count($v_file-notes//table[1]/columns/column[name='DateModified']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-annotationDetails" select="count($v_file-notes//table[1]/columns/column[name='AnnotationDetails']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-attachmentUUID" select="count($v_file-notes//table[1]/columns/column[name='AttachmentUUID']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-lastEditingUser" select="count($v_file-notes//table[1]/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-notes-locationInAttachedFile" select="count($v_file-notes//table[1]/columns/column[name='LocationInAttachedFile']/preceding-sibling::column)"/>
     <!-- check the column number for specific fields in 'Attachment.xml'. This is necessary as the sort order can change -->
-    <xsl:variable name="v_column-attachments-isDeleted" select="count($v_file-attachments/table/columns/column[name='IsDeleted']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-attachments-attachmentType" select="count($v_file-attachments/table/columns/column[name='AttachmentType']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-attachments-dateModified" select="count($v_file-attachments/table/columns/column[name='dateModified']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-attachments-lastEditingUser" select="count($v_file-attachments/table/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
-    <xsl:variable name="v_column-attachments-attachmentName" select="count($v_file-attachments/table/columns/column[name='AttachmentName']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-isDeleted" select="count($v_file-attachments//table[1]/columns/column[name='IsDeleted']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-attachmentType" select="count($v_file-attachments//table[1]/columns/column[name='AttachmentType']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-dateModified" select="count($v_file-attachments//table[1]/columns/column[name='dateModified']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-lastEditingUser" select="count($v_file-attachments//table[1]/columns/column[name='LastEditingUser']/preceding-sibling::column)"/>
+    <xsl:variable name="v_column-attachments-attachmentName" select="count($v_file-attachments//table[1]/columns/column[name='AttachmentName']/preceding-sibling::column)"/>
         
     <xsl:template match="/">
         <!-- compiled Sente XML -->
@@ -64,10 +64,16 @@
                 <tss:library>
                     <tss:references>
                         <!-- exclude all references modified before the cut-off date -->
-                        <xsl:for-each-group group-by="value[@column = '0']" select="table/rows/row[oap:iso-date(value[@column = '19']) &gt;= $p_cut-off-date]">
+                        <xsl:for-each-group group-by="value[@column = '0']" select=".//table[1]/rows/row[oap:iso-date(value[@column = '19']) &gt;= $p_cut-off-date]">
                             <!-- sort by modification date -->
                             <xsl:sort order="descending"
                                 select="current-group()/value[@column = '19']"/>
+                            <xsl:if test="$p_debug = true()">
+                                <xsl:message>
+                                    <xsl:text>Converting reference </xsl:text>
+                                    <xsl:value-of select="current-grouping-key()"/>
+                                </xsl:message>
+                            </xsl:if>
                             <xsl:call-template name="t_generate-references">
                                 <xsl:with-param name="p_reference-uuid"
                                     select="current-grouping-key()"/>
@@ -87,10 +93,10 @@
     <xsl:template name="t_generate-references">
         <xsl:param name="p_reference-uuid"/>
         <xsl:for-each
-            select="$v_file-references/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+            select="$v_file-references//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]">
             <!-- set a number of general variables -->
             <xsl:variable name="v_spares-attributes"
-                select="document(concat($v_input-folder, 'SparseAttribute.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>
+                select="document(concat($v_input-folder, 'SparseAttribute.xml'))//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]"/>
             <tss:reference xml:id="{concat('uuid_',$p_reference-uuid)}">
                 <tss:publicationType name="{value[@column='3']}"/>
                 <!-- authors -->
@@ -161,9 +167,9 @@
     <xsl:template name="t_generate-characteristics">
         <!-- the template takes a reference UUID as input and queries the SparseAttribute.xml file for any rows relating to this reference -->
         <xsl:param name="p_reference-uuid"/>
-        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'SparseAttribute.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
+        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'SparseAttribute.xml'))//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <xsl:for-each
-            select="$v_file-sparse-attributes/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+            select="$v_file-sparse-attributes//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]">
             <!-- exclude certain rows -->
             <xsl:if
                 test="not(value[@column = '1'] = ('Retrieval year', 'Retrieval month', 'Retrieval day'))">
@@ -180,7 +186,7 @@
             <!-- Sente does not ultimately delete any note. Therefore one has to actively check for the status of a row in column 10: IsDeleted. -->
             <!-- In addition, the Note.xml file also contains all notes attached to references long since deleted, which, however, will not be marked as having been deleted themselves -->
             <xsl:for-each
-                select="$v_file-notes/table/rows/row[value[@column = '1'] = $p_reference-uuid][value[@column = $v_column-notes-isDeleted] = 'N']">
+                select="$v_file-notes//table[1]/rows/row[value[@column = '1'] = $p_reference-uuid][value[@column = $v_column-notes-isDeleted] = 'N']">
                 <xsl:variable name="v_color-rgba">
                     <xsl:analyze-string regex="RGBA.+?\[(.+?)\]" select="value[@column = $v_column-notes-annotationDetails]">
                         <xsl:matching-substring>
@@ -294,18 +300,18 @@
     <xsl:template name="t_generate-attachments">
         <!-- the template takes a reference UUID as input and queries the Attachment.xml file for any rows relating to this reference -->
         <xsl:param name="p_reference-uuid"/>
-        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Attachment.xml'))/table/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
+        <!--        <xsl:param name="p_input" select="document(concat($v_input-folder, 'Attachment.xml'))//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]"/>-->
         <tss:attachments>
             <!-- Sente does not ultimately delete any attachment reference from Attachment.xml. Therefore one has to actively check for the status of a row in column 5: IsDeleted. -->
             <xsl:for-each
-                select="$v_file-attachments/table/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = $v_column-attachments-isDeleted] = 'N']">
+                select="$v_file-attachments//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid][value[@column = $v_column-attachments-isDeleted] = 'N']">
                 <xsl:variable name="v_type" select="value[@column = $v_column-attachments-attachmentType]"/>
                 <xsl:variable name="v_editor" select="concat('Sente User ', value[@column = $v_column-attachments-lastEditingUser])"/>
                 <xsl:variable name="v_date-edited" select="oap:iso-timestamp(value[@column = $v_column-attachments-dateModified])"/>
                 <xsl:variable name="v_name" select="value[@column = $v_column-attachments-attachmentName]"/>
                 <xsl:variable name="v_attachment-uuid" select="value[@column = '1']"/>
                 <xsl:variable name="v_attachment-location"
-                    select="$v_file-attachment-locations/table/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
+                    select="$v_file-attachment-locations//table[1]/rows/row[value[@column = '1'] = $v_attachment-uuid]"/>
                 <!-- there is a huge issue with the attachment UUIDs in AttachmentLocation.xml: they are not unique! Depending on how many version of a file, Sente keeps track of, 
                     the number is potentially unlimited. I have seen at least five entires for the same attachment UUID. One could generate a `<tss:attachmentReference>` for each
                     The values for @column='3' are:
@@ -377,7 +383,7 @@
         <xsl:param name="p_reference-uuid"/>
         <tss:authors>
             <xsl:for-each
-                select="$v_file-authors/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+                select="$v_file-authors//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]">
                 <tss:author role="{value[@column='5']}">
                     <tss:surname>
                         <xsl:value-of select="value[@column = '2']"/>
@@ -397,7 +403,7 @@
         <xsl:param name="p_reference-uuid"/>
         <tss:keywords>
             <xsl:for-each
-                select="$v_file-keywords/table/rows/row[value[@column = '0'] = $p_reference-uuid]">
+                select="$v_file-keywords//table[1]/rows/row[value[@column = '0'] = $p_reference-uuid]">
                 <xsl:variable name="v_tag" select="value[@column = '1']"/>
                 <tss:keyword>
                     <xsl:attribute name="assigner" select="value[@column = '2']"/>
