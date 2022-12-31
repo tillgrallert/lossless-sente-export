@@ -19,19 +19,101 @@
     <xsl:param name="p_cut-off-date" select="'2001-01-01'"/>
     <xsl:variable name="v_input-folder" select="replace(base-uri(), '(.+/).+?\.xml', '$1')"/>
     <!-- select and load the input files into memory -->
-    <xsl:variable name="v_file-attachments" select="document(concat($v_input-folder, 'Attachment.xml'))"/>
-    <xsl:variable name="v_file-attachment-locations" select="document(concat($v_input-folder, 'AttachmentLocation.xml'))"/>
-    <xsl:variable name="v_file-authors" select="document(concat($v_input-folder, 'Author.xml'))"/>
-    <xsl:variable name="v_file-keywords" select="document(concat($v_input-folder, 'Keyword.xml'))"/>
-    <xsl:variable name="v_file-notes" select="document(concat($v_input-folder, 'Note.xml'))"/>
-    <xsl:variable name="v_file-references" select="document(concat($v_input-folder, 'Reference.xml'))"/>
-    <xsl:variable name="v_file-sparse-attributes" select="document(concat($v_input-folder, 'SparseAttribute.xml'))"/>
-    <xsl:variable name="v_file-versioned-library-property" select="document(concat($v_input-folder, 'VersionedLibraryProperty.xml'))"/>
+    <xsl:variable name="v_file-attachments">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'Attachment']">
+                <xsl:copy-of select="/database/table[name = 'Attachment']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'Attachment.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-attachment-locations">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'AttachmentLocation']">
+                <xsl:copy-of select="/database/table[name = 'AttachmentLocation']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'AttachmentLocation.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-authors">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'Author']">
+                <xsl:copy-of select="/database/table[name = 'Author']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'Author.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-keywords">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'Keyword']">
+                <xsl:copy-of select="/database/table[name = 'Keyword']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'Keyword.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-notes">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'Note']">
+                <xsl:copy-of select="/database/table[name = 'Note']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'Note.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-references">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'Reference']">
+                <xsl:copy-of select="/database/table[name = 'Reference']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'Reference.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-sparse-attributes">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'SparseAttribute']">
+                <xsl:copy-of select="/database/table[name = 'SparseAttribute']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'SparseAttribute.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-versioned-library-property">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'VersionedLibraryProperty']">
+                <xsl:copy-of select="/database/table[name = 'VersionedLibraryProperty']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'VersionedLibraryProperty.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="v_file-library-property">
+        <xsl:choose>
+            <xsl:when test="/database/table[name = 'LibraryProperty']">
+                <xsl:copy-of select="/database/table[name = 'LibraryProperty']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document(concat($v_input-folder, 'LibraryProperty.xml'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
     
     
     <!-- static variables for all references -->
     <xsl:variable name="v_base-url"
-        select="substring-before(document(concat($v_input-folder, 'LibraryProperty.xml'))//table[1]/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
+        select="substring-before($v_file-library-property//table[1]/rows/row[value[@column = '0'] = 'Library Location']/value[@column = '1'], 'primaryLibrary.sente601')"/>
     <!-- bibliographic information from Reference.xml -->
     <xsl:variable name="v_columns" select="'4,5,6,7,8,10,11,14,20'"/>
     <xsl:variable name="v_column-names"
@@ -64,7 +146,7 @@
                 <tss:library>
                     <tss:references>
                         <!-- exclude all references modified before the cut-off date -->
-                        <xsl:for-each-group group-by="value[@column = '0']" select=".//table[1]/rows/row[oap:iso-date(value[@column = '19']) &gt;= $p_cut-off-date]">
+                        <xsl:for-each-group group-by="value[@column = '0']" select="$v_file-references//table[1]/rows/row[oap:iso-date(value[@column = '19']) &gt;= $p_cut-off-date]">
                             <!-- sort by modification date -->
                             <xsl:sort order="descending"
                                 select="current-group()/value[@column = '19']"/>
